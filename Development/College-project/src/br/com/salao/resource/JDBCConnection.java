@@ -53,21 +53,5 @@ public class JDBCConnection {
 		}
 
 	}
-	
-	public static void main(String[] args){
-		Connection conn = getConnection();
-		PreparedStatement pstm = null;
-		
-		try {
-			
-			pstm = conn.prepareStatement("SELECT * FROM PESSOAS");
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally{
-			close(conn, pstm, null);
-		}
-		
-	}
 
 }

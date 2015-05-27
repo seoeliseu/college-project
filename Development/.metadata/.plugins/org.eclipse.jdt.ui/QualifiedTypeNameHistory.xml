@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="br.com.salao.entity.ProdutoEntity"/>
+<<<<<<< HEAD
 <fullyQualifiedTypeName name="javafx.scene.Scene"/>
 <fullyQualifiedTypeName name="javafx.scene.Group"/>
 <fullyQualifiedTypeName name="javafx.scene.layout.AnchorPane"/>
@@ -12,4 +13,10 @@
 <fullyQualifiedTypeName name="javafx.scene.control.TextField"/>
 <fullyQualifiedTypeName name="javafx.scene.control.DatePicker"/>
 <fullyQualifiedTypeName name="javafx.scene.control.Separator"/>
+=======
+<fullyQualifiedTypeName name="br.com.salao.factory.FactoryEntity"/>
+<fullyQualifiedTypeName name="java.sql.Connection"/>
+<fullyQualifiedTypeName name="br.com.salao.resource.JDBCConnection"/>
+<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+>>>>>>> origin/eliseu
 </qualifiedTypeNameHistroy>

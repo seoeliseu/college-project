@@ -36,7 +36,11 @@ public class LoginView extends AnchorPane{
 		//setStyle("-fx-background-color: linear-gradient( from 0% 0% to 0% 0%, #87CEFB 0%, #DCDCDC 100%);");
 		
 		
+<<<<<<< HEAD
 		setPrefSize(420, 400);
+=======
+		setPrefSize(600, 500);
+>>>>>>> origin/eliseu
 		
 		getChildren().addAll(lbuser,tfuser,lbpassword,pfpassword,hlRecuperarSenha,btLogin,btQuit);
 		

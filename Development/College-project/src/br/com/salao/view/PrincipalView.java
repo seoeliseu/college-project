@@ -82,9 +82,12 @@ public class PrincipalView extends Application{
 				userComumView.getChildren().add(0, userAdminView.paneMenuBar);
 				userComumView.getChildren().remove(1);
 				userComumView.getChildren().add(1, listarServicoView);
+<<<<<<< HEAD
 				
 				stage.setWidth(1100);
 				stage.setHeight(650);
+=======
+>>>>>>> origin/eliseu
 			}
 		});
 		
