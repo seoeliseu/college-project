@@ -3,6 +3,7 @@ package br.com.salao.view;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -19,17 +20,23 @@ public class PrincipalView extends Application{
 	private ConsultaClienteView consultaClienteView;
 	private ConsultarFuncionarioView consultarFuncionarioView;
 	
+	
+	
 	private Stage stage;
 
 	@Override
 	public void start(Stage stage) throws Exception {
 		// TODO Auto-generated method stub
+		
 		iniComponents();
 		iniListeners();
 		
 		stage = this.stage;
 		userComumView.menuBar.prefWidthProperty().bind(stage.widthProperty());
 		userAdminView.menuBar.prefWidthProperty().bind(stage.widthProperty());
+		
+		
+		
 		stage.show();
 		
 		
@@ -41,12 +48,11 @@ public class PrincipalView extends Application{
 	private void iniComponents(){
 		stage = new Stage();
 		stage.setResizable(false);
-		stage.setX(10);
-		stage.setY(10);
+		stage.setX(400);
+		stage.setY(150);
 		stage.setTitle("HAIRDITE");
 		
 		panePrincipal = new VBox();
-		
 		
 		loginView = new LoginView();
 		userComumView = new TelaUserComumView();
@@ -77,8 +83,8 @@ public class PrincipalView extends Application{
 				userComumView.getChildren().remove(1);
 				userComumView.getChildren().add(1, listarServicoView);
 				
-				
-				
+				stage.setWidth(1100);
+				stage.setHeight(650);
 			}
 		});
 		

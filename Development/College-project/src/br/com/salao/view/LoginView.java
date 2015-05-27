@@ -4,13 +4,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 public class LoginView extends AnchorPane{
 	public Scene scene;
 	private Label lbuser, lbpassword;
-	private TextField tfuser, tfpassword;
+	private TextField tfuser;
+	private PasswordField pfpassword;
 	public Button btLogin, btQuit;
 	public Hyperlink hlRecuperarSenha;
 	
@@ -25,19 +27,18 @@ public class LoginView extends AnchorPane{
 		lbuser = new Label("Usuário:");
 		lbpassword = new Label("Senha:");
 		tfuser = new TextField();
-		tfpassword = new TextField();
+		pfpassword = new PasswordField();
 		hlRecuperarSenha = new Hyperlink("Esqueceu a senha?");
 		btLogin = new Button("Acessar");
 		btQuit = new Button("Sair");
 		
 		
-		setStyle("-fx-background-color: linear-gradient( from 0% 0% to 100% 100%,"+
-				"#87CEFA 0%, #DCDCDC 100%);");
+		//setStyle("-fx-background-color: linear-gradient( from 0% 0% to 0% 0%, #87CEFB 0%, #DCDCDC 100%);");
 		
 		
-		setPrefSize(1100, 660);
+		setPrefSize(420, 400);
 		
-		getChildren().addAll(lbuser,tfuser,lbpassword,tfpassword,hlRecuperarSenha,btLogin,btQuit);
+		getChildren().addAll(lbuser,tfuser,lbpassword,pfpassword,hlRecuperarSenha,btLogin,btQuit);
 		
 	}
 	
@@ -49,8 +50,8 @@ public class LoginView extends AnchorPane{
 		
 		lbpassword.setLayoutX(89);
 		lbpassword.setLayoutY(155);
-		tfpassword.setLayoutX(150);
-		tfpassword.setLayoutY(150);
+		pfpassword.setLayoutX(150);
+		pfpassword.setLayoutY(150);
 		
 		hlRecuperarSenha.setLayoutX(190);
 		hlRecuperarSenha.setLayoutY(180);
