@@ -1,0 +1,12 @@
+package br.com.salao.view;
+
+import javafx.scene.layout.AnchorPane;
+
+public class CadastroEmpresaView extends AnchorPane{
+	public CadastroEmpresaView() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	private void iniComponents(){}
+	private void iniLayout(){}
+}

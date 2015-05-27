@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <session version="1.0">
+<<<<<<< HEAD
+<refactoring accessors="true" comment="Delete element from project &apos;College-project&apos;&#x0D;&#x0A;- Original project: &apos;College-project&apos;&#x0D;&#x0A;- Original element: &apos;br.com.salao.view.Paises.java&apos;" description="Delete element" element1="/src&lt;br.com.salao.view{Paises.java" elements="1" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1432684448717" subPackages="false" version="1.0"/>
+=======
 <refactoring comment="Rename type &apos;br.com.salao.factory.Factory&apos; to &apos;FactoryEntity&apos;&#x0D;&#x0A;- Original project: &apos;College-project&apos;&#x0D;&#x0A;- Original element: &apos;br.com.salao.factory.Factory&apos;&#x0D;&#x0A;- Renamed element: &apos;br.com.salao.factory.FactoryEntity&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Factory&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;br.com.salao.factory{Factory.java[Factory" matchStrategy="1" name="FactoryEntity" qualified="false" references="true" similarDeclarations="false" stamp="1432680642630" textual="false" version="1.0"/>
+>>>>>>> origin/eliseu
 </session>

@@ -1,6 +1,13 @@
 INDEX VERSION 1.127+C:\Users\thiagoifc\Documents\GitHub\college-project\Development\.metadata\.plugins\org.eclipse.jdt.core
 1787405673.index
 3045053200.index
+<<<<<<< HEAD
+3716007315.index
+3604769962.index
+4187470955.index
+1045485630.index
+2674037006.index
+=======
 3954291735.index
 1045485630.index
 323251068.index
@@ -10,11 +17,18 @@ INDEX VERSION 1.127+C:\Users\thiagoifc\Documents\GitHub\college-project\Developm
 4187470955.index
 3716007315.index
 115418958.index
+>>>>>>> origin/eliseu
 533208796.index
 3604769962.index
 994834796.index
 3656756579.index
 2535676096.index
+<<<<<<< HEAD
+1337478678.index
+4026442113.index
+2945478995.index
+=======
+>>>>>>> origin/eliseu
 355369697.index
 2674037006.index
 4026442113.index

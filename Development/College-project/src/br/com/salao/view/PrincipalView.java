@@ -34,6 +34,9 @@ public class PrincipalView extends Application{
 		stage = this.stage;
 		userComumView.menuBar.prefWidthProperty().bind(stage.widthProperty());
 		userAdminView.menuBar.prefWidthProperty().bind(stage.widthProperty());
+		
+		
+		
 		stage.show();
 		
 		
@@ -45,12 +48,11 @@ public class PrincipalView extends Application{
 	private void iniComponents(){
 		stage = new Stage();
 		stage.setResizable(false);
-		stage.setX(10);
-		stage.setY(10);
+		stage.setX(400);
+		stage.setY(150);
 		stage.setTitle("HAIRDITE");
 		
 		panePrincipal = new VBox();
-		
 		
 		loginView = new LoginView();
 		userComumView = new TelaUserComumView();
@@ -80,6 +82,12 @@ public class PrincipalView extends Application{
 				userComumView.getChildren().add(0, userAdminView.paneMenuBar);
 				userComumView.getChildren().remove(1);
 				userComumView.getChildren().add(1, listarServicoView);
+<<<<<<< HEAD
+				
+				stage.setWidth(1100);
+				stage.setHeight(650);
+=======
+>>>>>>> origin/eliseu
 			}
 		});
 		
