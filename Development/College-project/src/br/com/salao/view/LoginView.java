@@ -35,7 +35,7 @@ public class LoginView extends AnchorPane{
 				"#87CEFA 0%, #DCDCDC 100%);");
 		
 		
-		setPrefSize(1100, 660);
+		setPrefSize(600, 500);
 		
 		getChildren().addAll(lbuser,tfuser,lbpassword,tfpassword,hlRecuperarSenha,btLogin,btQuit);
 		

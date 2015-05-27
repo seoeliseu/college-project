@@ -1,0 +1,48 @@
+package br.com.salao.dao;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import br.com.salao.entity.ClienteEntity;
+import br.com.salao.factory.FactoryEntity;
+import br.com.salao.interfaces.IDao;
+
+public class ClienteDAO implements IDao {
+
+	private final String INSERT = " INSERT INTO ";
+	private final String SELECT = " SELECT ";
+	private final String FROM = " FROM ";
+	private final String WHERE = " WHERE ";
+	private final String UPDATE = " UPDATE ";
+	private final String VALUES = " VALUES( ";
+	
+	@Override
+	public void Salvar(Object objeto) {
+		Connection conn = FactoryEntity.connection().getConnection();
+		ClienteEntity cliente = (ClienteEntity)objeto;
+		String sql = "";
+		sql+= INSERT+"CLIENTE (nome, email, dataDeNascimento, endereco_id )";
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void Alterar(Object objeto) {
+		ClienteEntity cliente = (ClienteEntity)objeto;
+	}
+
+	@Override
+	public void Inserir(Object objeto) {
+		ClienteEntity cliente = (ClienteEntity)objeto;
+	}
+
+	@Override
+	public Object Pesquisar(Object objeto) {
+		ClienteEntity cliente = (ClienteEntity)objeto;
+		return null;
+	}
+
+}
