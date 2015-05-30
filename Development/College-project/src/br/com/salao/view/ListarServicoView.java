@@ -1,10 +1,6 @@
 package br.com.salao.view;
 
 import br.com.salao.entity.ProdutoEntity;
-import br.com.salao.entity.ServicoEntity;
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Button;

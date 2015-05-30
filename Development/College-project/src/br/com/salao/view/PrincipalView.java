@@ -19,6 +19,13 @@ public class PrincipalView extends Application{
 	private ListarServicoView listarServicoView;
 	private ConsultaClienteView consultaClienteView;
 	private ConsultarFuncionarioView consultarFuncionarioView;
+	private CadastroEmpresaView cadastroEmpresaView;
+	private CadastroFuncionarioView cadastroFuncionarioView;
+	private CadastroClienteView cadastroClienteView;
+	private CadastroServicoView cadastroServicoView;
+	private AgendarServicoView agendarServicoView;
+	private TelaClienteEntity telaClienteEntity;
+	private ConfiguracaoView configuracaoView;
 	
 	
 	
@@ -48,8 +55,8 @@ public class PrincipalView extends Application{
 	private void iniComponents(){
 		stage = new Stage();
 		stage.setResizable(false);
-		stage.setX(400);
-		stage.setY(150);
+		stage.setX(10);
+		stage.setY(10);
 		stage.setTitle("HAIRDITE");
 		
 		panePrincipal = new VBox();
@@ -61,8 +68,16 @@ public class PrincipalView extends Application{
 		listarServicoView = new ListarServicoView();
 		consultaClienteView = new ConsultaClienteView();
 		consultarFuncionarioView = new ConsultarFuncionarioView();
+		cadastroEmpresaView = new CadastroEmpresaView();
+		cadastroFuncionarioView = new CadastroFuncionarioView();
+		cadastroClienteView = new CadastroClienteView();
+		cadastroServicoView = new CadastroServicoView();
+		agendarServicoView = new AgendarServicoView();
+		telaClienteEntity = new TelaClienteEntity();
+		configuracaoView = new ConfiguracaoView();
 		
-		panePrincipal.getChildren().add(loginView);
+		
+		panePrincipal.getChildren().add(configuracaoView);
 
 		scene = new Scene(panePrincipal);
 		

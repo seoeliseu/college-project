@@ -8,15 +8,19 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class CadastroServicoView extends Application{
-	private AnchorPane pane;
+public class CadastroServicoView extends AnchorPane{
+	
 	public Button btConfirmar, btCancelar;
 	private Label lbServico, lbValor, lbTime;
 	private TextField tfServico, tfValor, tfTime;
 	
-	public static void main(String[] args) {
-		launch(args);
+	public CadastroServicoView() {
+		// TODO Auto-generated constructor stub
+		iniComponets();
+		iniLayout();
 	}
+	
+	
 	
 	private void iniComponets(){
 		lbServico = new Label("Serviço: ");
@@ -28,12 +32,13 @@ public class CadastroServicoView extends Application{
 		tfValor = new TextField();
 		
 		btCancelar = new Button("Cancelar");
+		btCancelar.setPrefSize(100, 30);
 		btConfirmar = new Button("Confirmar");
+		btConfirmar.setPrefSize(100, 30);
 		
-		pane = new AnchorPane();
-		pane.setPrefSize(500, 350);
+		setPrefSize(1100, 660);
 		
-		pane.getChildren().addAll(lbServico,lbTime,lbValor,tfServico,tfTime,tfValor,btCancelar,btConfirmar);
+		getChildren().addAll(lbServico,lbTime,lbValor,tfServico,tfTime,tfValor,btCancelar,btConfirmar);
 	}
 	private void iniLayout(){
 		lbServico.setLayoutX(56);
@@ -61,15 +66,4 @@ public class CadastroServicoView extends Application{
 		btConfirmar.setLayoutY(200);
 	}
 
-	@Override
-	public void start(Stage stage) throws Exception {
-		// TODO Auto-generated method stub
-		iniComponets();
-		iniLayout();
-		
-		Scene scene = new Scene(pane);
-		stage.setScene(scene);
-		stage.setTitle("Cadastro de serviço");
-		stage.show();
-	}
 }
