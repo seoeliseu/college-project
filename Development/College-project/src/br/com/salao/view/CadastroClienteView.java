@@ -1,40 +1,25 @@
 package br.com.salao.view;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-
-import javafx.application.Application;
-import javafx.scene.Scene;
+import br.com.salao.resource.ConfDatePicker;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 
-public class CadastroClienteView extends Application{
-	private AnchorPane pane;
-	private Scene scene;
+public class CadastroClienteView extends AnchorPane{
+	
 	private Label lbNome, lbDataNascimento, lbRg, lbTelOne, lbTelTwo, lbEmail;
 	public TextField tfNome, tfRg, tfTelOne, tfTelTwo, tfEmail;
 	public DatePicker dpDataNascimento;
 	public Button btCadastrar, btCancelar, btAtualizar;
 	
-	
-	public static void main(String[] args) {
-		launch(args);
-	}
-
-	@Override
-	public void start(Stage stage) throws Exception {
-		// TODO Auto-generated method stub
+	public CadastroClienteView() {
+		// TODO Auto-generated constructor stub
 		iniComponents();
 		iniLayout();
-		
-		stage.setScene(scene);
-		stage.setTitle("Cadastro de cliente");
-		stage.show();
 	}
+	
 	
 	private void iniComponents(){
 		lbNome = new Label("Nome:*");
@@ -45,11 +30,13 @@ public class CadastroClienteView extends Application{
 		lbEmail = new Label("Email: ");
 		
 		btCadastrar = new Button("Cadastrar");
+		btCadastrar.setPrefSize(100, 30);
 		btCancelar = new Button("Cancelar");
+		btCancelar.setPrefSize(100, 30);
 		btAtualizar = new Button("Atualizar");
 		btAtualizar.setVisible(false);
 		dpDataNascimento = new DatePicker();
-		setConfDatePicker();
+		ConfDatePicker.setConfDatePicker(dpDataNascimento);
 		
 		tfNome = new TextField();
 		tfNome.setPrefWidth(450);
@@ -62,13 +49,12 @@ public class CadastroClienteView extends Application{
 		tfEmail = new TextField();
 		tfEmail.setPrefWidth(450);
 		
-		pane = new AnchorPane();
-		pane.setPrefSize(700, 400);
 		
-		pane.getChildren().addAll(lbNome,lbDataNascimento,lbRg,lbTelOne,lbTelTwo,lbEmail,
+		setPrefSize(1100, 660);
+		
+		getChildren().addAll(lbNome,lbDataNascimento,lbRg,lbTelOne,lbTelTwo,lbEmail,
 				tfNome,dpDataNascimento,tfRg,tfTelOne,tfTelTwo,tfEmail, btCadastrar,btAtualizar ,btCancelar);
 		
-		scene = new Scene(pane);
 	}
 	private void iniLayout(){
 		lbNome.setLayoutX(150);
@@ -104,38 +90,12 @@ public class CadastroClienteView extends Application{
 		btCadastrar.setLayoutX(250);
 		btCadastrar.setLayoutY(300);
 		
-		btCancelar.setLayoutX(375);
+		btCancelar.setLayoutX(400);
 		btCancelar.setLayoutY(300);
 		
-		btAtualizar.setLayoutX(250);
+		btAtualizar.setLayoutX(275);
 		btAtualizar.setLayoutY(300);
 	}
 	
-	private void setConfDatePicker(){
-		String pattern = "dd/MM/yyyy";
-		
-		dpDataNascimento.setPromptText(pattern.toLowerCase());
-
-		dpDataNascimento.setConverter(new javafx.util.StringConverter<LocalDate>() {
-		     DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern(pattern);
-
-		     @Override 
-		     public String toString(LocalDate date) {
-		         if (date != null) {
-		             return dateFormatter.format(date);
-		         } else {
-		             return "";
-		         }
-		     }
-
-		     @Override 
-		     public LocalDate fromString(String string) {
-		         if (string != null && !string.isEmpty()) {
-		             return LocalDate.parse(string, dateFormatter);
-		         } else {
-		             return null;
-		         }
-		     }
-		 });
-	}
+	
 }
