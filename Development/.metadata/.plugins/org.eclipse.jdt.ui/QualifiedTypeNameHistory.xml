@@ -15,7 +15,6 @@
 <fullyQualifiedTypeName name="javafx.collections.FXCollections"/>
 <fullyQualifiedTypeName name="br.com.salao.view.TelaClienteEntity"/>
 <fullyQualifiedTypeName name="br.com.salao.view.ConsultaClienteView"/>
-<fullyQualifiedTypeName name="br.com.salao.resource.ConfDatePicker"/>
 <fullyQualifiedTypeName name="javafx.scene.layout.AnchorPane"/>
 <fullyQualifiedTypeName name="javafx.scene.control.Button"/>
 <fullyQualifiedTypeName name="jdk.nashorn.internal.codegen.Emitter"/>
@@ -23,4 +22,8 @@
 <fullyQualifiedTypeName name="br.com.salao.view.ConfiguracaoView"/>
 <fullyQualifiedTypeName name="javafx.scene.control.PasswordField"/>
 <fullyQualifiedTypeName name="javafx.scene.control.TextField"/>
+<fullyQualifiedTypeName name="br.com.salao.resource.ConfDatePicker"/>
+<fullyQualifiedTypeName name="javafx.geometry.Rectangle2D"/>
+<fullyQualifiedTypeName name="javafx.stage.Screen"/>
+<fullyQualifiedTypeName name="javafx.event.EventHandler"/>
 </qualifiedTypeNameHistroy>

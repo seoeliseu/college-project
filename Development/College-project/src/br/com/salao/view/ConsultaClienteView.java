@@ -22,12 +22,19 @@ public class ConsultaClienteView extends AnchorPane{
 	}
 	
 	private void iniComponents(){
+		setPrefSize(1100, 660);
+		
 		btSair = new Button("Voltar");
+		btSair.setPrefSize(100, 30);
 		btPesquisar = new Button("Pesquisar");
 		btAcessarCliente = new Button("Acessar");
+		btAcessarCliente.setPrefSize(100, 30);
 		btEditar = new Button("Editar");
+		btEditar.setPrefSize(100, 30);
 		btCadastrarCliente = new Button("+ Cliente");
+		btCadastrarCliente.setPrefSize(100, 30);
 		btDeletar = new Button("Excluir");
+		btDeletar.setPrefSize(100, 30);
 		
 		tfPesquisar = new TextField();
 		tfPesquisar.setPrefWidth(950);
@@ -61,27 +68,27 @@ public class ConsultaClienteView extends AnchorPane{
 	}
 	private void iniLayout(){
 		btSair.setLayoutX(30);
-		btSair.setLayoutY(0);
+		btSair.setLayoutY(5);
 		
 		tableCliente.setLayoutX(30);
-		tableCliente.setLayoutY(60);
+		tableCliente.setLayoutY(70);
 		
 		tfPesquisar.setLayoutX(30);
-		tfPesquisar.setLayoutY(30);
+		tfPesquisar.setLayoutY(40);
 		
 		btPesquisar.setLayoutX(1013);
-		btPesquisar.setLayoutY(30);
+		btPesquisar.setLayoutY(40);
 		
 		btAcessarCliente.setLayoutX(30);
 		btAcessarCliente.setLayoutY(480);
 		
-		btEditar.setLayoutX(130);
+		btEditar.setLayoutX(150);
 		btEditar.setLayoutY(480);
 		
-		btCadastrarCliente.setLayoutX(230);
+		btCadastrarCliente.setLayoutX(270);
 		btCadastrarCliente.setLayoutY(480);
 		
-		btDeletar.setLayoutX(330);
+		btDeletar.setLayoutX(390);
 		btDeletar.setLayoutY(480);
 	}
 }

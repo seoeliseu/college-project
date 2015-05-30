@@ -27,13 +27,19 @@ public class ListarServicoView extends AnchorPane{
 	}
 	
 	private void iniComponents(){
+		setPrefSize(1100, 660);
+		
 		paneBody = new AnchorPane();
 		paneBody.setPrefSize(790, 500);
 		
 		btSair = new Button("Voltar");
+		btSair.setPrefSize(100, 30);
 		btCadastrarServico = new Button("+ Serviço");
+		btCadastrarServico.setPrefSize(100, 30);
 		btDeletar = new Button("Excluir");
+		btDeletar.setPrefSize(100, 30);
 		btEditar = new Button("Editar");
+		btEditar.setPrefSize(100, 30);
 		
 		tableServico = new TableView<ProdutoEntity>();
 		tableServico.setPrefSize(1050, 400);
@@ -73,10 +79,10 @@ public class ListarServicoView extends AnchorPane{
 		btCadastrarServico.setLayoutX(30);
 		btCadastrarServico.setLayoutY(480);
 		
-		btEditar.setLayoutX(130);
+		btEditar.setLayoutX(150);
 		btEditar.setLayoutY(480);
 		
-		btDeletar.setLayoutX(210);
+		btDeletar.setLayoutX(270);
 		btDeletar.setLayoutY(480);
 	}
 }
