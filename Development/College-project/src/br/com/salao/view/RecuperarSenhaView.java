@@ -1,8 +1,6 @@
 package br.com.salao.view;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-
+import br.com.salao.resource.ConfDatePicker;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -22,62 +20,38 @@ public class RecuperarSenhaView extends AnchorPane{
 	
 	
 	private void iniComponents(){
-		setPrefSize(1100, 680);
+		setPrefSize(500, 400);
 		lbCpf = new Label("CPF:*");
 		lbDataNascimento = new Label("Data de nascimento:*");
 		tfCpf = new TextField();
 		dpDataNascimento = new DatePicker();
-		setConfDatePicker();
+		ConfDatePicker.setConfDatePicker(dpDataNascimento);
 		
 		btConfirmar = new Button("Confirmar");
+		btConfirmar.setPrefSize(100, 30);
 		btCancelar = new Button("Cancelar");
+		btCancelar.setPrefSize(100, 30);
 		
 		getChildren().addAll(lbCpf,lbDataNascimento,tfCpf,dpDataNascimento,btConfirmar,btCancelar);
 	}
 	
 	private void iniLayout(){
-		lbCpf.setLayoutX(400);
+		lbCpf.setLayoutX(187);
 		lbCpf.setLayoutY(100);
-		lbDataNascimento.setLayoutX(293);
+		lbDataNascimento.setLayoutX(100);
 		lbDataNascimento.setLayoutY(150);
-		tfCpf.setLayoutX(450);
+		tfCpf.setLayoutX(230);
 		tfCpf.setLayoutY(95);
 		
-		dpDataNascimento.setLayoutX(450);
+		dpDataNascimento.setLayoutX(230);
 		dpDataNascimento.setLayoutY(145);
 		
-		btConfirmar.setLayoutX(400);
-		btConfirmar.setLayoutY(295);
+		btConfirmar.setLayoutX(100);
+		btConfirmar.setLayoutY(270);
 		
-		btCancelar.setLayoutX(500);
-		btCancelar.setLayoutY(295);
+		btCancelar.setLayoutX(300);
+		btCancelar.setLayoutY(270);
 	}
 	
-	private void setConfDatePicker(){
-		String pattern = "dd/MM/yyyy";
-		
-		dpDataNascimento.setPromptText(pattern.toLowerCase());
-
-		dpDataNascimento.setConverter(new javafx.util.StringConverter<LocalDate>() {
-		     DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern(pattern);
-
-		     @Override 
-		     public String toString(LocalDate date) {
-		         if (date != null) {
-		             return dateFormatter.format(date);
-		         } else {
-		             return "";
-		         }
-		     }
-
-		     @Override 
-		     public LocalDate fromString(String string) {
-		         if (string != null && !string.isEmpty()) {
-		             return LocalDate.parse(string, dateFormatter);
-		         } else {
-		             return null;
-		         }
-		     }
-		 });
-	}
+	
 }
