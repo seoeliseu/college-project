@@ -13,8 +13,8 @@ import javafx.scene.layout.AnchorPane;
 public class LoginView extends AnchorPane{
 	public Scene scene;
 	private Label lbuser, lbpassword;
-	private TextField tfuser;
-	private PasswordField pfpassword;
+	public TextField tfuser;
+	public PasswordField pfpassword;
 	public Button btLogin, btQuit;
 	public Hyperlink hlRecuperarSenha;
 	
@@ -22,7 +22,6 @@ public class LoginView extends AnchorPane{
 		// TODO Auto-generated constructor stub
 		iniComponents();
 		iniLayout();
-		iniListeners();
 	}
 	
 	private void iniComponents(){
@@ -33,7 +32,9 @@ public class LoginView extends AnchorPane{
 		pfpassword = new PasswordField();
 		hlRecuperarSenha = new Hyperlink("Esqueceu a senha?");
 		btLogin = new Button("Acessar");
+		btLogin.setPrefSize(100, 30);
 		btQuit = new Button("Sair");
+		btQuit.setPrefSize(100, 30);
 		
 		
 		setStyle("-fx-background-color: linear-gradient( from 0% 0% to 0% 0%, #87CEFB 0%, #DCDCDC 100%);");
@@ -61,19 +62,9 @@ public class LoginView extends AnchorPane{
 		hlRecuperarSenha.setLayoutY(180);
 		
 		btLogin.setLayoutX(130);
-		btLogin.setLayoutY(250);
+		btLogin.setLayoutY(280);
 		btQuit.setLayoutX(270);
-		btQuit.setLayoutY(250);
+		btQuit.setLayoutY(280);
 	}
 	
-	private void iniListeners(){
-		btLogin.setOnAction(new EventHandler<ActionEvent>() {
-			
-			@Override
-			public void handle(ActionEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-		});
-	}
 }

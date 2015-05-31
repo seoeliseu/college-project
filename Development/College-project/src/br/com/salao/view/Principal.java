@@ -1,3 +1,18 @@
+/**
+ * {
+ * @author Eliseu Mendes de Morais
+ * @version 1.0
+ * 
+ * Email: seoeliseu@gmail.com
+ * https://github.com/seoeliseu
+ * 
+ * Classe responsável pela transição e eventos das telas da aplicação.
+ * 
+ * As validações dos campos é feita diretamente nas classes view.
+ * 
+ * }**/
+
+
 package br.com.salao.view;
 
 import javafx.application.Application;
@@ -28,6 +43,7 @@ public class Principal extends Application {
 	private AgendarServicoView agendarServicoView;
 	private ClienteEntityView clienteEntityView;
 	private ConfiguracaoView configuracaoView;
+	private ConsultaAgendamentosView consultaAgendamentosView;
 
 	private Stage stage;
 
@@ -44,9 +60,15 @@ public class Principal extends Application {
 		iniListenersCadastroFuncionarioView();
 		iniListenersCadastroServicoView();
 		
+		iniListenersConsultaAgendamentosView();
+		iniListenersConsultaFuncionarioView();
+		
 		iniListenersConsultaClienteView();
 		iniListenersClienteEntityView();
+		iniListenersAgendarServicoView();
 		iniListenersListarServicosView();
+		
+		iniListenersConfiguracaoView();
 
 		stage = this.stage;
 		userComumView.menuBar.prefWidthProperty().bind(stage.widthProperty());
@@ -82,6 +104,8 @@ public class Principal extends Application {
 		agendarServicoView = new AgendarServicoView();
 		clienteEntityView = new ClienteEntityView();
 		configuracaoView = new ConfiguracaoView();
+		consultaAgendamentosView = new ConsultaAgendamentosView();
+		agendarServicoView = new AgendarServicoView();
 		
 //		stage.setX(5);
 //		stage.setY(5);
@@ -89,7 +113,9 @@ public class Principal extends Application {
 		panePrincipal.getChildren().add(loginView);
 
 		scene = new Scene(panePrincipal);
-
+		
+		stage.setWidth(loginView.getPrefWidth());
+		stage.setHeight(loginView.getPrefHeight());
 		stage.setScene(scene);
 
 	}
@@ -165,7 +191,57 @@ public class Principal extends Application {
 				goToConsultarCliente();
 			}
 		});
+		
+		userAdminView.miShowAgendaGeral.setOnAction(new EventHandler<ActionEvent>() {
+			
+			@Override
+			public void handle(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				goToConsultaAgendamentosView();
+			}
+		});
+		
+		userAdminView.miFindFuncionario.setOnAction(new EventHandler<ActionEvent>() {
+			
+			@Override
+			public void handle(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				goToConsultarFuncionarioView();
+			}
+		});
+		
+		userAdminView.miSetParamentros.setOnAction(new EventHandler<ActionEvent>() {
+			
+			@Override
+			public void handle(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				goToConfiguracaoView();
+			}
+		});
 	}
+	private void iniListenersConsultaFuncionarioView(){
+		consultarFuncionarioView.btVoltar.setOnAction(new EventHandler<ActionEvent>() {
+			
+			@Override
+			public void handle(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				goToUsersView();
+			}
+		});
+	}
+	
+	private void iniListenersConsultaAgendamentosView(){
+		consultaAgendamentosView.btVoltar.setOnAction(new EventHandler<ActionEvent>() {
+			
+			@Override
+			public void handle(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				goToUsersView();
+			}
+		});
+	}
+	
+	
 
 	// Eventos da classe cadastroClienteView
 	private void iniListenersCadastroClienteView() {
@@ -295,6 +371,7 @@ public class Principal extends Application {
 		});
 	}
 	
+	//Eventos da classe clienteEntityView
 	private void iniListenersClienteEntityView(){
 		clienteEntityView.btVoltar.setOnAction(new EventHandler<ActionEvent>() {
 			
@@ -304,7 +381,36 @@ public class Principal extends Application {
 				goToConsultarCliente();
 			}
 		});
+		
+		clienteEntityView.btAgendarServico.setOnAction(new EventHandler<ActionEvent>() {
+			
+			
+			@Override
+			public void handle(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				
+				try {
+					agendarServicoView.start(agendarServicoView.stage);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});	
 	}
+	
+	//Eventos da classe AgendarServicoView
+	private void iniListenersAgendarServicoView(){
+		agendarServicoView.btCancelar.setOnAction(new EventHandler<ActionEvent>() {
+			
+			@Override
+			public void handle(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				agendarServicoView.stage.close();
+			}
+		});
+	}
+	
 	
 	//Eventos da classe listarServicoView
 	private void iniListenersListarServicosView(){
@@ -317,14 +423,27 @@ public class Principal extends Application {
 			}
 		});
 	}
-
+	
+	//Eventos da classe ConfiguracaoView
+	private void iniListenersConfiguracaoView(){
+		configuracaoView.btCancelar.setOnAction(new EventHandler<ActionEvent>() {
+			
+			@Override
+			public void handle(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				goToUsersView();
+			}
+		});
+	}
+	
+	
+	//Métodos para setar as transições de telas
 	private void goToTelaUserComum() {
 		panePrincipal.getChildren().remove(0);
 		panePrincipal.getChildren().add(userComumView);
 		stage.setWidth(userComumView.getPrefWidth());
 		stage.setHeight(userComumView.getPrefHeight());
-		stage.setX(5);
-		stage.setY(5);
+		prefTelaUsers();
 	}
 
 	private void goToTelaUserAdmin() {
@@ -336,8 +455,7 @@ public class Principal extends Application {
 		stage.setWidth(userComumView.getPrefWidth());
 		stage.setHeight(userComumView.getPrefHeight());
 
-		stage.setX(5);
-		stage.setY(5);
+		prefTelaUsers();
 	}
 
 	private void goToRecuperarSenha() {
@@ -350,10 +468,9 @@ public class Principal extends Application {
 	private void goToLogin() {
 		panePrincipal.getChildren().remove(0);
 		panePrincipal.getChildren().add(loginView);
-		stage.setWidth(loginView.getWidth());
-		stage.setHeight(loginView.getHeight());
-		stage.setX(300);
-		stage.setY(100);
+		stage.setWidth(loginView.getPrefWidth());
+		stage.setHeight(loginView.getPrefHeight());
+		prefTelaInicial();
 	}
 
 	private void goToCadastroServico() {
@@ -389,9 +506,28 @@ public class Principal extends Application {
 		userComumView.getChildren().remove(1);
 		userComumView.getChildren().add(1,clienteEntityView);
 	}
-
+	private void goToConsultaAgendamentosView(){
+		userComumView.getChildren().remove(1);
+		userComumView.getChildren().add(1,consultaAgendamentosView);
+	}
+	private void goToConfiguracaoView(){
+		userComumView.getChildren().remove(1);
+		userComumView.getChildren().add(1,configuracaoView);
+	}
+	private void goToConsultarFuncionarioView(){
+		userComumView.getChildren().remove(1);
+		userComumView.getChildren().add(1,consultarFuncionarioView);
+	}
+	
+	//Seta o layout X,Y inicial
 	private void prefTelaInicial() {
 		stage.setX(300);
 		stage.setY(100);
 	}
+	
+	private void prefTelaUsers(){
+		stage.setX(10);
+		stage.setY(10);
+	}
+	
 }

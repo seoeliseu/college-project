@@ -11,7 +11,7 @@ import javafx.scene.layout.AnchorPane;
 
 public class ConsultaClienteView extends AnchorPane{
 	public Button btSair, btPesquisar, btAcessarCliente, btEditar, btCadastrarCliente, btDeletar;
-	private TextField tfPesquisar;
+	public TextField tfPesquisar;
 	public TableView<ClienteEntity> tableCliente;
 	private ObservableList<ClienteEntity> data;
 	private TableColumn nomeCol, dateNasCol, rgCol, telOneCol, telTwoCol, emailCol, credCol;
