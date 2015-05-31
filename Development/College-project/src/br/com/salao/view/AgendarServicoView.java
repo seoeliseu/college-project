@@ -12,6 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class AgendarServicoView extends Application{
+	public Stage stage;
 	private Scene scene;
 	private AnchorPane pane;
 	private Label lbServico, lbFuncionario,lbData, lbHora;
@@ -25,11 +26,18 @@ public class AgendarServicoView extends Application{
 		launch(args);
 	}
 	
+	public AgendarServicoView() {
+		// TODO Auto-generated constructor stub
+		iniComponents();
+		iniLayout();
+	}
+	
 	@Override
 	public void start(Stage stage) throws Exception {
 		// TODO Auto-generated method stub
-		iniComponents();
-		iniLayout();
+		
+		
+		stage = this.stage;
 		
 		stage.setScene(scene);
 		stage.setTitle("Agendamento de serviço");
@@ -37,6 +45,7 @@ public class AgendarServicoView extends Application{
 	}
 	
 	private void iniComponents(){
+		stage = new Stage();
 		pane = new AnchorPane();
 		pane.setPrefSize(600, 400);
 		
