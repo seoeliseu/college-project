@@ -36,33 +36,33 @@ public class FactoryEntity {
 		return conn;
 	}
 
-	public static ClienteEntity clienteEntity(String nome,
+	public ClienteEntity clienteEntity(String nome,
 			ContatoEntity contato, String dataDeNascimento,
 			double creditoFidelidade) {
 		return new ClienteEntity(nome, contato, dataDeNascimento,
 				creditoFidelidade);
 	}
 
-	public static ContatoEntity contato(String email, String telefone1,
+	public ContatoEntity contato(String email, String telefone1,
 			String telefone2) {
 		return new ContatoEntity(email, telefone1, telefone2);
 	}
 
-	public static EmpresaEntity empresaEntity(String razaoSocial,
+	public EmpresaEntity empresaEntity(String razaoSocial,
 			String nomeFantasia, String cnpj, ContatoEntity contato,
 			EnderecoEntity endereco) {
 		return new EmpresaEntity(razaoSocial, nomeFantasia, cnpj, contato,
 				endereco);
 	}
 
-	public static EnderecoEntity enderecoEntity(String pais, String estado,
+	public EnderecoEntity enderecoEntity(String pais, String estado,
 			String cep, String cidade, String bairro, String rua,
 			String numero, String complemento) {
 		return new EnderecoEntity(pais, estado, cep, cidade, bairro, rua,
 				numero, complemento);
 	}
 
-	public static FuncionarioEntity funcionarioEntity(String nome, String cpf,
+	public FuncionarioEntity funcionarioEntity(String nome, String cpf,
 			String rg, CargoEntity cargo, ContatoEntity contato,
 			EnderecoEntity endereco, String dataDeNascimento,
 			String dataDeAdmissao, boolean statusDoFuncionario,
@@ -72,11 +72,11 @@ public class FactoryEntity {
 				temAgenda, usuario);
 	}
 
-	public static ProdutoEntity produtoEntity(String nome, double valor, int tempo){
+	public ProdutoEntity produtoEntity(String nome, double valor, int tempo){
 		return new ProdutoEntity(nome, valor, tempo);
 	}
 
-	public static ServicoEntity servicoEntity(){
+	public ServicoEntity servicoEntity(){
 		return new ServicoEntity();
 	}
 

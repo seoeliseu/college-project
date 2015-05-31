@@ -112,15 +112,16 @@ public class Principal extends Application {
 		consultaAgendamentosView = new ConsultaAgendamentosView();
 		agendarServicoView = new AgendarServicoView();
 		
-//		stage.setX(5);
-//		stage.setY(5);
+		stage.setX(5);
+		stage.setY(5);
 
-		panePrincipal.getChildren().add(loginView);
+		//panePrincipal.getChildren().add(loginView);
+		panePrincipal.getChildren().add(cadastroEmpresaView);
 
 		scene = new Scene(panePrincipal);
 		
-		stage.setWidth(loginView.getPrefWidth());
-		stage.setHeight(loginView.getPrefHeight());
+//		stage.setWidth(loginView.getPrefWidth());
+//		stage.setHeight(loginView.getPrefHeight());
 		stage.setScene(scene);
 
 	}
