@@ -1,3 +1,18 @@
+/**
+ * {
+ * @author Eliseu Mendes de Morais
+ * @version 1.0
+ * 
+ * Email: seoeliseu@gmail.com
+ * https://github.com/seoeliseu
+ * 
+ * 
+ * Classe view da autenticação no sistema.
+ * 
+ * 
+ * 
+ * }**/
+
 package br.com.salao.view;
 
 import javafx.event.ActionEvent;
