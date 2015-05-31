@@ -1,7 +1,0 @@
-package br.com.salao.resource;
-
-public class ConfDatePicker {
-	public static void setConfDatePicker(){
-		
-	}
-}
