@@ -1,3 +1,17 @@
+/**
+ * {
+ * @author Eliseu Mendes de Morais
+ * @version 1.0
+ * 
+ * Email: seoeliseu@gmail.com
+ * https://github.com/seoeliseu
+ * 
+ * Classe responsável pela view de implantação do sistema.
+ * }
+ * **/
+
+
+
 package br.com.salao.view;
 
 import br.com.salao.resource.ConfDatePicker;
