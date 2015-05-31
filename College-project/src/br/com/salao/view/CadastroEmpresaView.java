@@ -14,6 +14,7 @@
 
 package br.com.salao.view;
 
+import br.com.salao.factory.FactoryEntity;
 import br.com.salao.resource.ConfDatePicker;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -547,6 +548,19 @@ public class CadastroEmpresaView extends AnchorPane {
 		btCancelar.setLayoutX(600);
 		btCancelar.setLayoutY(560);
 
+	}
+	
+	public void cadastrarEmpresa(){
+		FactoryEntity.getInstance().empresaEntity(this.tfRazaoSocial.getText(),
+				this.tfNomeFantasia.getText(),
+				this.tfCNPJ.getText(),
+				FactoryEntity.getInstance().contato(this.tfEmailEmp.getText(),
+						this.tfTelOneEmp.getText(), this.tfTelTwoEmp.getText()),
+						FactoryEntity.getInstance().enderecoEntity(this.cbPaisEmp.getSelectionModel().getSelectedItem().toString(),
+								this.cbEstadoEmp.getSelectionModel().getSelectedItem().toString(),
+								this.tfCepEmp.getText(), this.cbCidadeEmp.getSelectionModel().getSelectedItem().toString(),
+								this.tfBairroEmp.getText(), this.tfRuaEmp.getText(), this.tfNumeroEmp.getText(),
+								this.tfComplementoEmp.getText()));
 	}
 	
 	private void iniListeners(){
