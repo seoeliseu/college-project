@@ -7,7 +7,7 @@ import java.sql.PreparedStatement;
 
 public class JDBCConnection {
 
-	private static final String JDBC_URL="jdbc:mysql://localhost:3306/jdbcdb";
+	private static final String JDBC_URL="jdbc:mysql://localhost:3306/dbsalao";
 	private static final String JDBC_USER="root";
 	private static final String JDBC_PASS="root";
 	private static final String JDBC_DRIVER="com.mysql.jdbc.Driver";
@@ -42,6 +42,25 @@ public class JDBCConnection {
 			
 			if(pstm != null){
 				pstm.close();
+			}
+			
+			if(rs != null){
+				rs.close();
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
+	
+	public static void close(Connection conn, ResultSet rs){
+
+
+		try {
+
+			if(conn != null){
+				conn.close();
 			}
 			
 			if(rs != null){
