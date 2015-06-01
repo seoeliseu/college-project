@@ -22,6 +22,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.Separator;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -41,7 +42,7 @@ public class CadastroEmpresaView extends AnchorPane {
 	private Label lbAdmin, lbNome, lbCTPS, lbRG, lbCPF, lbCargo, lbSalario,
 			lbDataNasc, lbTelOneAd, lbTelTwoAd, lbEmailAd, lbPaisAd,
 			lbEstadoAd, lbCepAd, lbCidadeAd, lbBairroAd, lbRuaAd, lbNumeroAd,
-			lbComplementoAd;
+			lbComplementoAd, lbUsuario, lbSenha;
 
 	public Button btCadastrar, btCancelar;
 
@@ -56,7 +57,9 @@ public class CadastroEmpresaView extends AnchorPane {
 
 	public TextField tfNome, tfCTPS, tfRG, tfCPF, tfSalario, tfTelOneAd,
 			tfTelTwoAd, tfEmailAd, tfCepAd, tfBairroAd, tfRuaAd, tfNumeroAd,
-			tfComplementoAd;
+			tfComplementoAd, tfUsuario;
+	
+	public PasswordField pfSenha;
 
 	private Separator spEmpresa, spAdmin;
 
@@ -108,6 +111,9 @@ public class CadastroEmpresaView extends AnchorPane {
 		lbRuaAd = new Label("Rua:* ");
 		lbNumeroAd = new Label("Número:* ");
 		lbComplementoAd = new Label("Complemento: ");
+		
+		lbUsuario = new Label("Usuário: ");
+		lbSenha = new Label("Senha: ");
 
 		tfNomeFantasia = new TextField();
 		tfNomeFantasia.setPrefWidth(500);
@@ -252,6 +258,9 @@ public class CadastroEmpresaView extends AnchorPane {
 
 		tfComplementoAd = new TextField();
 		tfComplementoAd.setPrefWidth(970);
+		
+		tfUsuario = new TextField();
+		pfSenha = new PasswordField();
 
 		dpDataNascimento = new DatePicker();
 		ConfDatePicker.setConfDatePicker(dpDataNascimento);
@@ -296,7 +305,7 @@ public class CadastroEmpresaView extends AnchorPane {
 		getChildren().addAll(lbAdmin, lbNome, lbCTPS, lbRG, lbCPF, lbCargo,
 				lbSalario, lbDataNasc, lbTelOneAd, lbTelTwoAd, lbEmailAd,
 				lbPaisAd, lbEstadoAd, lbCepAd, lbCidadeAd, lbBairroAd, lbRuaAd,
-				lbNumeroAd, lbComplementoAd);
+				lbNumeroAd, lbComplementoAd, lbUsuario, lbSenha);
 
 		getChildren().addAll(btCadastrar, btCancelar, cbPaisEmp, cbEstadoEmp,
 				cbCidadeEmp, cbPaisAd, cbEstadoAd, cbCidadeAd, cbCargoAd,
@@ -309,7 +318,7 @@ public class CadastroEmpresaView extends AnchorPane {
 
 		getChildren().addAll(tfNome, tfCTPS, tfRG, tfCPF, tfSalario,
 				tfTelOneAd, tfTelTwoAd, tfEmailAd, tfCepAd, tfBairroAd,
-				tfRuaAd, tfNumeroAd, tfComplementoAd);
+				tfRuaAd, tfNumeroAd, tfComplementoAd, tfUsuario, pfSenha);
 
 		getChildren().addAll(spEmpresa, spAdmin);
 
@@ -541,6 +550,9 @@ public class CadastroEmpresaView extends AnchorPane {
 
 		tfComplementoAd.setLayoutX(120);
 		tfComplementoAd.setLayoutY(500);
+		
+		lbUsuario.setLayoutX(120);
+		lbUsuario.setLayoutY(535);
 
 		btCadastrar.setLayoutX(400);
 		btCadastrar.setLayoutY(560);

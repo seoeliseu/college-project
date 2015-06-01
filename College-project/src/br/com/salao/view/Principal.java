@@ -18,6 +18,7 @@ package br.com.salao.view;
 
 import java.sql.Date;
 
+import br.com.salao.ValidacaoUtil.ValidacaoUtil;
 import br.com.salao.controller.ClienteController;
 import br.com.salao.entity.ClienteEntity;
 import javafx.application.Application;
@@ -112,16 +113,19 @@ public class Principal extends Application {
 		consultaAgendamentosView = new ConsultaAgendamentosView();
 		agendarServicoView = new AgendarServicoView();
 		
-		stage.setX(5);
-		stage.setY(5);
-
-		//panePrincipal.getChildren().add(loginView);
-		panePrincipal.getChildren().add(cadastroEmpresaView);
-
-		scene = new Scene(panePrincipal);
 		
-//		stage.setWidth(loginView.getPrefWidth());
-//		stage.setHeight(loginView.getPrefHeight());
+		if(ValidacaoUtil.existeEmpresa()){
+			stage.setWidth(loginView.getPrefWidth());
+			stage.setHeight(loginView.getPrefHeight());
+			panePrincipal.getChildren().add(loginView);
+		}
+		else{
+			stage.setX(10);
+			stage.setY(10);
+			panePrincipal.getChildren().add(cadastroEmpresaView);
+		}
+		
+		scene = new Scene(panePrincipal);
 		stage.setScene(scene);
 
 	}
