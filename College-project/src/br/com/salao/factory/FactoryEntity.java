@@ -55,10 +55,10 @@ public class FactoryEntity {
 				endereco);
 	}
 
-	public EnderecoEntity enderecoEntity(String pais, String estado,
-			String cep, String cidade, String bairro, String rua,
+	public EnderecoEntity enderecoEntity(int id_pais, int id_estado,
+			String cep, int id_cidade, String bairro, String rua,
 			String numero, String complemento) {
-		return new EnderecoEntity(pais, estado, cep, cidade, bairro, rua,
+		return new EnderecoEntity(id_pais, id_estado, cep, id_cidade, bairro, rua,
 				numero, complemento);
 	}
 

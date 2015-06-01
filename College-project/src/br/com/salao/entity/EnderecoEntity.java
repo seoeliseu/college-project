@@ -1,46 +1,47 @@
 package br.com.salao.entity;
 
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class EnderecoEntity {
 
-	private SimpleStringProperty pais;
-	private SimpleStringProperty estado;
+	private SimpleIntegerProperty id_pais;
+	private SimpleIntegerProperty id_estado;
 	private SimpleStringProperty cep;
-	private SimpleStringProperty cidade;
+	private SimpleIntegerProperty id_cidade;
 	private SimpleStringProperty bairro;
 	private SimpleStringProperty rua;
 	private SimpleStringProperty numero;
 	private SimpleStringProperty complemento;
 
-	public EnderecoEntity(String pais, String estado, String cep,
-			String cidade, String bairro, String rua, String numero,
+	public EnderecoEntity(int id_pais, int id_estado, String cep,
+			int id_cidade, String bairro, String rua, String numero,
 			String complemento) {
 		
-		this.pais = new SimpleStringProperty(pais);
-		this.estado = new SimpleStringProperty(estado);
+		this.id_pais = new SimpleIntegerProperty(id_pais);
+		this.id_estado = new SimpleIntegerProperty(id_estado);
 		this.cep = new SimpleStringProperty(cep);
-		this.cidade = new SimpleStringProperty(cidade);
+		this.id_cidade = new SimpleIntegerProperty(id_cidade);
 		this.bairro = new SimpleStringProperty(bairro);
 		this.rua = new SimpleStringProperty(rua);
 		this.numero = new SimpleStringProperty(numero);
 		this.complemento = new SimpleStringProperty(complemento);
 	}
 
-	public String getPais() {
-		return pais.get();
+	public int getPais() {
+		return id_pais.get();
 	}
 
-	public void setPais(String pais) {
-		this.pais.set(pais);
+	public void setPais(int id_pais) {
+		this.id_pais.set(id_pais);
 	}
 
-	public String getEstado() {
-		return estado.get();
+	public int getEstado() {
+		return id_estado.get();
 	}
 
-	public void setEstado(String estado) {
-		this.estado.set(estado);
+	public void setEstado(int id_estado) {
+		this.id_estado.set(id_estado);
 	}
 
 	public String getCep() {
@@ -51,12 +52,12 @@ public class EnderecoEntity {
 		this.cep.set(cep);
 	}
 
-	public String getCidade() {
-		return cidade.get();
+	public int  getCidade() {
+		return id_cidade.get();
 	}
 
-	public void setCidade(String cidade) {
-		this.cidade.set(cidade);
+	public void setCidade(int id_cidade) {
+		this.id_cidade.set(id_cidade);
 	}
 
 	public String getBairro() {

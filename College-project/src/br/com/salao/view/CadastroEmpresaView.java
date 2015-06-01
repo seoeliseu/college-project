@@ -565,16 +565,18 @@ public class CadastroEmpresaView extends AnchorPane {
 	}
 	
 	public boolean cadastrarEmpresa(){
-		FactoryEntity.getInstance().empresaEntity(this.tfRazaoSocial.getText(),
+		
+		
+		control.Inserir(FactoryEntity.getInstance().empresaEntity(this.tfRazaoSocial.getText(),
 				this.tfNomeFantasia.getText(),
 				this.tfCNPJ.getText(),
 				FactoryEntity.getInstance().contato(this.tfEmailEmp.getText(),
 						this.tfTelOneEmp.getText(), this.tfTelTwoEmp.getText()),
-						FactoryEntity.getInstance().enderecoEntity(this.cbPaisEmp.getSelectionModel().getSelectedItem().toString(),
-								this.cbEstadoEmp.getSelectionModel().getSelectedItem().toString(),
-								this.tfCepEmp.getText(), this.cbCidadeEmp.getSelectionModel().getSelectedItem().toString(),
+						FactoryEntity.getInstance().enderecoEntity(this.cbPaisEmp.getSelectionModel().getSelectedIndex(),
+								this.cbEstadoEmp.getSelectionModel().getSelectedIndex(),
+								this.tfCepEmp.getText(), this.cbCidadeEmp.getSelectionModel().getSelectedIndex(),
 								this.tfBairroEmp.getText(), this.tfRuaEmp.getText(), this.tfNumeroEmp.getText(),
-								this.tfComplementoEmp.getText()));
+								this.tfComplementoEmp.getText())));
 		
 		return true;
 	}
