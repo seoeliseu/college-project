@@ -34,13 +34,13 @@ public class EmpresaDAO implements IDao{
 
 	@Override
 	public void Inserir(Object objeto) {
+		
 		Connection connection = FactoryEntity.getInstance().connection().getConnection();
 		Savepoint savepoint = null;
+		System.out.println("Passei aqui");
 		try {
 			
-			
 			EmpresaEntity empresa = (EmpresaEntity)objeto;
-			
 			
 			PreparedStatement pstm = null;
 			String insertContato = "";
@@ -55,10 +55,7 @@ public class EmpresaDAO implements IDao{
 			pstm.setString(2, empresa.getContato().getTelefone2());
 			pstm.setString(3, empresa.getContato().getEmail());
 			
-			
-			
 			pstm.execute();
-			
 			
 			String insertEndereco = "";
 			insertEndereco += INSERT+"endereco(cep, bairro, rua, numero, complemento, cidade_id)";
@@ -78,7 +75,7 @@ public class EmpresaDAO implements IDao{
 			String insertEmpresa = "";
 			insertEmpresa+= INSERT+"empresa(nm_fantasia, raz_Social, cnpj, contatos_id, endereco_id)";
 			insertEmpresa+=	"VALUES (?,?,?,?,?)";
-			
+			pstm = connection.prepareStatement(insertEmpresa);
 			pstm.setString(1, empresa.getNomeFantasia());
 			pstm.setString(2, empresa.getRazaoSocial());
 			pstm.setString(3, empresa.getCnpj());
@@ -89,12 +86,12 @@ public class EmpresaDAO implements IDao{
 			while(rs.next())pstm.setInt(4, rs.getInt("id"));
 			
 			rs = connection.prepareStatement(SELECT+"endereco.id"+FROM+"endereco"+WHERE
-					+"cep = "+empresa.getEndereco().getCep()+AND+"bairro = "+
-					empresa.getEndereco().getBairro()+AND+"rua = "+
-					empresa.getEndereco().getRua()+AND+"numero = "+
-					empresa.getEndereco().getNumero()+AND+"complemento = "+
-					empresa.getEndereco().getComplemento()+AND+"id_cidade = "+
-					empresa.getEndereco().getCidade()).executeQuery();
+					+"endereco.cep = "+empresa.getEndereco().getCep()+AND+"endereco.bairro = "+
+					empresa.getEndereco().getBairro().toString()+AND+"endereco.rua = "+
+					empresa.getEndereco().getRua()+AND+"endereco.numero = "+
+					empresa.getEndereco().getNumero()+AND+"endereco.complemento = "+
+					empresa.getEndereco().getComplemento()+AND+"endereco.cidade_id = "+
+					String.valueOf(empresa.getEndereco().getCidade())).executeQuery();
 			
 			while(rs.next())pstm.setInt(5, rs.getInt("id"));
 			

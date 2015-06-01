@@ -64,6 +64,7 @@ public class Principal extends Application {
 		iniListenersCadastroClienteView();
 		iniListenersCadastroFuncionarioView();
 		iniListenersCadastroServicoView();
+		iniListenersCadastroEmpresaView();
 
 		iniListenersConsultaAgendamentosView();
 		iniListenersConsultaFuncionarioView();
