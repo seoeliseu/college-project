@@ -13,7 +13,7 @@ public class FuncionarioDAO implements IDao{
 	private final String UPDATE = " UPDATE ";
 	
 	@Override
-	public void Salvar(Object objeto) {
+	public void Excluir(Object objeto) {
 		FuncionarioEntity funcionario = (FuncionarioEntity)objeto;
 	}
 

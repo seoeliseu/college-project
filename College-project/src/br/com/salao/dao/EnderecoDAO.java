@@ -13,7 +13,7 @@ public class EnderecoDAO implements IDao{
 	private final String UPDATE = " UPDATE ";
 	
 	@Override
-	public void Salvar(Object objeto) {
+	public void Excluir(Object objeto) {
 		EnderecoEntity endereco = (EnderecoEntity)objeto;		
 	}
 

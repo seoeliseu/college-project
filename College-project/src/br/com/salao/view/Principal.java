@@ -13,7 +13,6 @@
  * 
  * }**/
 
-
 package br.com.salao.view;
 
 import java.sql.Date;
@@ -65,15 +64,15 @@ public class Principal extends Application {
 		iniListenersCadastroClienteView();
 		iniListenersCadastroFuncionarioView();
 		iniListenersCadastroServicoView();
-		
+
 		iniListenersConsultaAgendamentosView();
 		iniListenersConsultaFuncionarioView();
-		
+
 		iniListenersConsultaClienteView();
 		iniListenersClienteEntityView();
 		iniListenersAgendarServicoView();
 		iniListenersListarServicosView();
-		
+
 		iniListenersConfiguracaoView();
 
 		stage = this.stage;
@@ -112,19 +111,17 @@ public class Principal extends Application {
 		configuracaoView = new ConfiguracaoView();
 		consultaAgendamentosView = new ConsultaAgendamentosView();
 		agendarServicoView = new AgendarServicoView();
-		
-		
-		if(ValidacaoUtil.existeEmpresa()){
+
+		if (ValidacaoUtil.existeEmpresa()) {
 			stage.setWidth(loginView.getPrefWidth());
 			stage.setHeight(loginView.getPrefHeight());
 			panePrincipal.getChildren().add(loginView);
-		}
-		else{
+		} else {
 			stage.setX(10);
 			stage.setY(10);
 			panePrincipal.getChildren().add(cadastroEmpresaView);
 		}
-		
+
 		scene = new Scene(panePrincipal);
 		stage.setScene(scene);
 
@@ -175,14 +172,14 @@ public class Principal extends Application {
 		});
 
 		userAdminView.miAddFuncionario
-				.setOnAction(new EventHandler<ActionEvent>() {
+		.setOnAction(new EventHandler<ActionEvent>() {
 
-					@Override
-					public void handle(ActionEvent arg0) {
-						// TODO Auto-generated method stub
-						goToCadastroFuncionario();
-					}
-				});
+			@Override
+			public void handle(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				goToCadastroFuncionario();
+			}
+		});
 
 		userAdminView.miAddCliente.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -192,36 +189,40 @@ public class Principal extends Application {
 				goToCadastroCliente();
 			}
 		});
-		
-		userAdminView.miFindCliente.setOnAction(new EventHandler<ActionEvent>() {
-			
+
+		userAdminView.miFindCliente
+		.setOnAction(new EventHandler<ActionEvent>() {
+
 			@Override
 			public void handle(ActionEvent arg0) {
 				// TODO Auto-generated method stub
 				goToConsultarCliente();
 			}
 		});
-		
-		userAdminView.miShowAgendaGeral.setOnAction(new EventHandler<ActionEvent>() {
-			
+
+		userAdminView.miShowAgendaGeral
+		.setOnAction(new EventHandler<ActionEvent>() {
+
 			@Override
 			public void handle(ActionEvent arg0) {
 				// TODO Auto-generated method stub
 				goToConsultaAgendamentosView();
 			}
 		});
-		
-		userAdminView.miFindFuncionario.setOnAction(new EventHandler<ActionEvent>() {
-			
+
+		userAdminView.miFindFuncionario
+		.setOnAction(new EventHandler<ActionEvent>() {
+
 			@Override
 			public void handle(ActionEvent arg0) {
 				// TODO Auto-generated method stub
 				goToConsultarFuncionarioView();
 			}
 		});
-		
-		userAdminView.miSetParamentros.setOnAction(new EventHandler<ActionEvent>() {
-			
+
+		userAdminView.miSetParamentros
+		.setOnAction(new EventHandler<ActionEvent>() {
+
 			@Override
 			public void handle(ActionEvent arg0) {
 				// TODO Auto-generated method stub
@@ -229,9 +230,11 @@ public class Principal extends Application {
 			}
 		});
 	}
-	private void iniListenersConsultaFuncionarioView(){
-		consultarFuncionarioView.btVoltar.setOnAction(new EventHandler<ActionEvent>() {
-			
+
+	private void iniListenersConsultaFuncionarioView() {
+		consultarFuncionarioView.btVoltar
+		.setOnAction(new EventHandler<ActionEvent>() {
+
 			@Override
 			public void handle(ActionEvent arg0) {
 				// TODO Auto-generated method stub
@@ -239,10 +242,11 @@ public class Principal extends Application {
 			}
 		});
 	}
-	
-	private void iniListenersConsultaAgendamentosView(){
-		consultaAgendamentosView.btVoltar.setOnAction(new EventHandler<ActionEvent>() {
-			
+
+	private void iniListenersConsultaAgendamentosView() {
+		consultaAgendamentosView.btVoltar
+		.setOnAction(new EventHandler<ActionEvent>() {
+
 			@Override
 			public void handle(ActionEvent arg0) {
 				// TODO Auto-generated method stub
@@ -250,12 +254,10 @@ public class Principal extends Application {
 			}
 		});
 	}
-	
-	
 
 	// Eventos da classe cadastroClienteView
 	private void iniListenersCadastroClienteView() {
-		
+
 		cadastroClienteView.btCadastrar
 		.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -263,64 +265,68 @@ public class Principal extends Application {
 			public void handle(ActionEvent arg0) {
 				ClienteController control = new ClienteController();
 				@SuppressWarnings("deprecation")
-				ClienteEntity cli = new ClienteEntity(cadastroClienteView.tfNome.getText().toString(),
-						new Date(cadastroClienteView.dpDataNascimento.getValue().getYear(),
-								cadastroClienteView.dpDataNascimento.getValue().getMonthValue(),
-								cadastroClienteView.dpDataNascimento.getValue().getDayOfMonth()));
+				ClienteEntity cli = new ClienteEntity(
+						cadastroClienteView.tfNome.getText().toString(),
+						new Date(cadastroClienteView.dpDataNascimento
+								.getValue().getYear(),
+								cadastroClienteView.dpDataNascimento
+								.getValue().getMonthValue(),
+								cadastroClienteView.dpDataNascimento
+								.getValue().getDayOfMonth()));
 				control.Inserir(cli);
 				System.out.println("passou aqui");
 			}
 		});
-		
-		cadastroClienteView.btCancelar
-				.setOnAction(new EventHandler<ActionEvent>() {
 
-					@Override
-					public void handle(ActionEvent arg0) {
-						// TODO Auto-generated method stub
-						goToUsersView();
-					}
-				});
+		cadastroClienteView.btCancelar
+		.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				goToUsersView();
+			}
+		});
 	}
-	
+
 	// Eventos da classe cadastroFuncionarioView
 	private void iniListenersCadastroFuncionarioView() {
 		cadastroFuncionarioView.btCancelar
-				.setOnAction(new EventHandler<ActionEvent>() {
+		.setOnAction(new EventHandler<ActionEvent>() {
 
-					@Override
-					public void handle(ActionEvent arg0) {
-						// TODO Auto-generated method stub
-						goToUsersView();
-					}
-				});
+			@Override
+			public void handle(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				goToUsersView();
+			}
+		});
 	}
-	
+
 	// Eventos da classe cadastroServicoView
 	private void iniListenersCadastroServicoView() {
 		cadastroServicoView.btCancelar
-				.setOnAction(new EventHandler<ActionEvent>() {
+		.setOnAction(new EventHandler<ActionEvent>() {
 
-					@Override
-					public void handle(ActionEvent arg0) {
-						// TODO Auto-generated method stub
-						goToUsersView();
-					}
-				});
+			@Override
+			public void handle(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				goToUsersView();
+			}
+		});
 	}
 
 	// Declaração dos eventos da classe RecuperarSenhaView
 	private void iniListenersRecuperarSenhaView() {
 
 		recuperarSenhaView.btCancelar
-				.setOnAction(new EventHandler<ActionEvent>() {
+		.setOnAction(new EventHandler<ActionEvent>() {
 
-					@Override
-					public void handle(ActionEvent arg0) {
-						// TODO Auto-generated method stub
-						goToLogin();
-					}
-				});
+			@Override
+			public void handle(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				goToLogin();
+			}
+		});
 	}
 
 	// Declaração dos eventos da classe UserComumView
@@ -343,18 +349,20 @@ public class Principal extends Application {
 				goToCadastroCliente();
 			}
 		});
-		
-		userComumView.btListarServicos.setOnAction(new EventHandler<ActionEvent>() {
-			
+
+		userComumView.btListarServicos
+		.setOnAction(new EventHandler<ActionEvent>() {
+
 			@Override
 			public void handle(ActionEvent arg0) {
 				// TODO Auto-generated method stub
 				goToListarServicoView();
 			}
 		});
-		
-		userComumView.btAgendamento.setOnAction(new EventHandler<ActionEvent>() {
-			
+
+		userComumView.btAgendamento
+		.setOnAction(new EventHandler<ActionEvent>() {
+
 			@Override
 			public void handle(ActionEvent arg0) {
 				// TODO Auto-generated method stub
@@ -363,11 +371,22 @@ public class Principal extends Application {
 		});
 
 	}
-	
-	//Eventos classe cadastroEmpresaView
-	private void iniListenersCadastroEmpresaView(){
-		cadastroEmpresaView.btCancelar.setOnAction(new EventHandler<ActionEvent>() {
-			
+
+	// Eventos classe cadastroEmpresaView
+	private void iniListenersCadastroEmpresaView() {
+
+		cadastroEmpresaView.btCadastrar
+		.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent arg0) {
+				if(cadastroEmpresaView.cadastrarEmpresa()) goToLogin();
+			}
+		});
+
+		cadastroEmpresaView.btCancelar
+		.setOnAction(new EventHandler<ActionEvent>() {
+
 			@Override
 			public void handle(ActionEvent arg0) {
 				// TODO Auto-generated method stub
@@ -375,20 +394,21 @@ public class Principal extends Application {
 			}
 		});
 	}
-	
-	//Eventos da classe consultaClienteView
-	private void iniListenersConsultaClienteView(){
+
+	// Eventos da classe consultaClienteView
+	private void iniListenersConsultaClienteView() {
 		consultaClienteView.btSair.setOnAction(new EventHandler<ActionEvent>() {
-			
+
 			@Override
 			public void handle(ActionEvent arg0) {
 				// TODO Auto-generated method stub
 				goToUsersView();
 			}
 		});
-		
-		consultaClienteView.btAcessarCliente.setOnAction(new EventHandler<ActionEvent>() {
-			
+
+		consultaClienteView.btAcessarCliente
+		.setOnAction(new EventHandler<ActionEvent>() {
+
 			@Override
 			public void handle(ActionEvent arg0) {
 				// TODO Auto-generated method stub
@@ -396,25 +416,25 @@ public class Principal extends Application {
 			}
 		});
 	}
-	
-	//Eventos da classe clienteEntityView
-	private void iniListenersClienteEntityView(){
+
+	// Eventos da classe clienteEntityView
+	private void iniListenersClienteEntityView() {
 		clienteEntityView.btVoltar.setOnAction(new EventHandler<ActionEvent>() {
-			
+
 			@Override
 			public void handle(ActionEvent arg0) {
 				// TODO Auto-generated method stub
 				goToConsultarCliente();
 			}
 		});
-		
-		clienteEntityView.btAgendarServico.setOnAction(new EventHandler<ActionEvent>() {
-			
-			
+
+		clienteEntityView.btAgendarServico
+		.setOnAction(new EventHandler<ActionEvent>() {
+
 			@Override
 			public void handle(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				
+
 				try {
 					agendarServicoView.start(agendarServicoView.stage);
 				} catch (Exception e) {
@@ -422,13 +442,14 @@ public class Principal extends Application {
 					e.printStackTrace();
 				}
 			}
-		});	
+		});
 	}
-	
-	//Eventos da classe AgendarServicoView
-	private void iniListenersAgendarServicoView(){
-		agendarServicoView.btCancelar.setOnAction(new EventHandler<ActionEvent>() {
-			
+
+	// Eventos da classe AgendarServicoView
+	private void iniListenersAgendarServicoView() {
+		agendarServicoView.btCancelar
+		.setOnAction(new EventHandler<ActionEvent>() {
+
 			@Override
 			public void handle(ActionEvent arg0) {
 				// TODO Auto-generated method stub
@@ -436,12 +457,11 @@ public class Principal extends Application {
 			}
 		});
 	}
-	
-	
-	//Eventos da classe listarServicoView
-	private void iniListenersListarServicosView(){
+
+	// Eventos da classe listarServicoView
+	private void iniListenersListarServicosView() {
 		listarServicoView.btSair.setOnAction(new EventHandler<ActionEvent>() {
-			
+
 			@Override
 			public void handle(ActionEvent arg0) {
 				// TODO Auto-generated method stub
@@ -449,11 +469,12 @@ public class Principal extends Application {
 			}
 		});
 	}
-	
-	//Eventos da classe ConfiguracaoView
-	private void iniListenersConfiguracaoView(){
-		configuracaoView.btCancelar.setOnAction(new EventHandler<ActionEvent>() {
-			
+
+	// Eventos da classe ConfiguracaoView
+	private void iniListenersConfiguracaoView() {
+		configuracaoView.btCancelar
+		.setOnAction(new EventHandler<ActionEvent>() {
+
 			@Override
 			public void handle(ActionEvent arg0) {
 				// TODO Auto-generated method stub
@@ -461,9 +482,8 @@ public class Principal extends Application {
 			}
 		});
 	}
-	
-	
-	//Métodos para setar as transições de telas
+
+	// Métodos para setar as transições de telas
 	private void goToTelaUserComum() {
 		panePrincipal.getChildren().remove(0);
 		panePrincipal.getChildren().add(userComumView);
@@ -513,12 +533,13 @@ public class Principal extends Application {
 		userComumView.getChildren().remove(1);
 		userComumView.getChildren().add(1, cadastroClienteView);
 	}
-	
-	private void goToConsultarCliente(){
+
+	private void goToConsultarCliente() {
 		userComumView.getChildren().remove(1);
 		userComumView.getChildren().add(1, consultaClienteView);
 	}
-	private void goToListarServicoView(){
+
+	private void goToListarServicoView() {
 		userComumView.getChildren().remove(1);
 		userComumView.getChildren().add(1, listarServicoView);
 	}
@@ -527,33 +548,36 @@ public class Principal extends Application {
 		userComumView.getChildren().remove(1);
 		userComumView.getChildren().add(1, userComumView.paneBody);
 	}
-	
-	private void goToClienteEntityView(){
+
+	private void goToClienteEntityView() {
 		userComumView.getChildren().remove(1);
-		userComumView.getChildren().add(1,clienteEntityView);
+		userComumView.getChildren().add(1, clienteEntityView);
 	}
-	private void goToConsultaAgendamentosView(){
+
+	private void goToConsultaAgendamentosView() {
 		userComumView.getChildren().remove(1);
-		userComumView.getChildren().add(1,consultaAgendamentosView);
+		userComumView.getChildren().add(1, consultaAgendamentosView);
 	}
-	private void goToConfiguracaoView(){
+
+	private void goToConfiguracaoView() {
 		userComumView.getChildren().remove(1);
-		userComumView.getChildren().add(1,configuracaoView);
+		userComumView.getChildren().add(1, configuracaoView);
 	}
-	private void goToConsultarFuncionarioView(){
+
+	private void goToConsultarFuncionarioView() {
 		userComumView.getChildren().remove(1);
-		userComumView.getChildren().add(1,consultarFuncionarioView);
+		userComumView.getChildren().add(1, consultarFuncionarioView);
 	}
-	
-	//Seta o layout X,Y inicial
+
+	// Seta o layout X,Y inicial
 	private void prefTelaInicial() {
 		stage.setX(300);
 		stage.setY(100);
 	}
-	
-	private void prefTelaUsers(){
+
+	private void prefTelaUsers() {
 		stage.setX(10);
 		stage.setY(10);
 	}
-	
+
 }

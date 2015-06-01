@@ -14,6 +14,7 @@
 
 package br.com.salao.view;
 
+import br.com.salao.controller.EmpresaController;
 import br.com.salao.factory.FactoryEntity;
 import br.com.salao.resource.ConfDatePicker;
 import javafx.beans.value.ChangeListener;
@@ -29,7 +30,7 @@ import javafx.scene.layout.AnchorPane;
 
 public class CadastroEmpresaView extends AnchorPane {
 	
-	
+	private EmpresaController control;
 	private final String restictToNumber = "[0-9\\s]*";
 
 	// Declaração dos labels da empresa.
@@ -68,6 +69,7 @@ public class CadastroEmpresaView extends AnchorPane {
 		iniComponents();
 		iniLayout();
 		iniListeners();
+		control = new EmpresaController();
 	}
 
 	private void iniComponents() {
@@ -562,7 +564,7 @@ public class CadastroEmpresaView extends AnchorPane {
 
 	}
 	
-	public void cadastrarEmpresa(){
+	public boolean cadastrarEmpresa(){
 		FactoryEntity.getInstance().empresaEntity(this.tfRazaoSocial.getText(),
 				this.tfNomeFantasia.getText(),
 				this.tfCNPJ.getText(),
@@ -573,6 +575,8 @@ public class CadastroEmpresaView extends AnchorPane {
 								this.tfCepEmp.getText(), this.cbCidadeEmp.getSelectionModel().getSelectedItem().toString(),
 								this.tfBairroEmp.getText(), this.tfRuaEmp.getText(), this.tfNumeroEmp.getText(),
 								this.tfComplementoEmp.getText()));
+		
+		return true;
 	}
 	
 	private void iniListeners(){

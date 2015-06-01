@@ -13,7 +13,7 @@ public class ProdutoDAO implements IDao{
 	private final String UPDATE = " UPDATE ";
 	
 	@Override
-	public void Salvar(Object objeto) {
+	public void Excluir(Object objeto) {
 		ProdutoEntity produto = (ProdutoEntity)objeto;		
 	}
 

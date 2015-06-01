@@ -20,7 +20,7 @@ public class ClienteDAO implements IDao {
 	private final String VALUES = " VALUES( ";
 
 	@Override
-	public void Salvar(Object objeto) {
+	public void Excluir(Object objeto) {
 		
 	}
 
