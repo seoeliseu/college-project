@@ -7,7 +7,7 @@ import br.com.salao.interfaces.IDao;
 public class ClienteController implements IDao {
 
 	@Override
-	public void Salvar(Object objeto) {
+	public void Excluir(Object objeto) {
 		
 		ClienteDAO cliDAO = new ClienteDAO();
 		try{
@@ -18,7 +18,7 @@ public class ClienteController implements IDao {
 		}catch(ClassCastException e){
 			//tenta fazer o cast novamente caso não dê certo
 			e.getMessage();
-			this.Salvar(objeto);
+			this.Excluir(objeto);
 		}catch(Exception e){
 			//retornar erro com tipo de excessão para visão
 			e.getMessage();

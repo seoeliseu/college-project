@@ -20,7 +20,7 @@ public class JDBCConnection {
 
 			Class.forName(JDBC_DRIVER);
 			conn = DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASS);
-
+			conn.setAutoCommit(false);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -28,7 +28,6 @@ public class JDBCConnection {
 		}
 
 		return conn;
-
 	}
 
 	public static void close(Connection conn, PreparedStatement pstm, ResultSet rs){
@@ -39,11 +38,11 @@ public class JDBCConnection {
 			if(conn != null){
 				conn.close();
 			}
-			
+
 			if(pstm != null){
 				pstm.close();
 			}
-			
+
 			if(rs != null){
 				rs.close();
 			}
@@ -53,7 +52,7 @@ public class JDBCConnection {
 		}
 
 	}
-	
+
 	public static void close(Connection conn, ResultSet rs){
 
 
@@ -62,7 +61,7 @@ public class JDBCConnection {
 			if(conn != null){
 				conn.close();
 			}
-			
+
 			if(rs != null){
 				rs.close();
 			}
