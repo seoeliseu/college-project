@@ -6,9 +6,11 @@ import javafx.beans.property.SimpleStringProperty;
 public class FuncionarioEntity {
 
 	private SimpleStringProperty nome;
+	private SimpleStringProperty ctps;
 	private SimpleStringProperty cpf;
+	private SimpleStringProperty pis;
 	private SimpleStringProperty rg;
-	private CargoEntity cargo;
+	private int cargo_id;
 	private ContatoEntity contato;
 	private EnderecoEntity endereco;
 	private SimpleStringProperty dataDeNascimento;
@@ -17,16 +19,17 @@ public class FuncionarioEntity {
 	private SimpleBooleanProperty temAgenda;
 	private UsuarioEntity usuario;
 
-	public FuncionarioEntity(String nome, String cpf, String rg,
-			CargoEntity cargo, ContatoEntity contato, EnderecoEntity endereco,
+	public FuncionarioEntity(String nome,String ctps, String cpf, String rg,
+			int cargo_id, ContatoEntity contato, EnderecoEntity endereco,
 			String dataDeNascimento, String dataDeAdmissao,
 			boolean statusDoFuncionario, boolean temAgenda,
-			UsuarioEntity usuario) {
+			UsuarioEntity usuario, String pis) {
 
 		this.nome = new SimpleStringProperty(nome);
+		this.ctps = new SimpleStringProperty(ctps);
 		this.cpf = new SimpleStringProperty(cpf);
 		this.rg = new SimpleStringProperty(rg);
-		this.cargo = cargo;
+		this.cargo_id = cargo_id;
 		this.contato = contato;
 		this.endereco = endereco;
 		this.dataDeNascimento = new SimpleStringProperty(dataDeNascimento);
@@ -34,6 +37,7 @@ public class FuncionarioEntity {
 		this.statusDoFuncionario = new SimpleBooleanProperty(statusDoFuncionario);
 		this.temAgenda = new SimpleBooleanProperty(temAgenda);
 		this.usuario = usuario;
+		this.pis = new SimpleStringProperty(pis);
 	}
 
 	public ContatoEntity getContato() {
@@ -50,6 +54,14 @@ public class FuncionarioEntity {
 
 	public void setNome(String nome) {
 		this.nome.set(nome);
+	}
+	
+	public String getCtps() {
+		return ctps.get();
+	}
+
+	public void setCtps(String nome) {
+		this.ctps.set(nome);
 	}
 
 	public String getCpf() {
@@ -68,12 +80,12 @@ public class FuncionarioEntity {
 		this.rg.set(rg);
 	}
 
-	public CargoEntity getCargo() {
-		return cargo;
+	public int getCargo() {
+		return cargo_id;
 	}
 
-	public void setCargo(CargoEntity cargo) {
-		this.cargo = cargo;
+	public void setCargo(int cargo_id) {
+		this.cargo_id = cargo_id;
 	}
 
 	public EnderecoEntity getEndereco() {
@@ -100,7 +112,7 @@ public class FuncionarioEntity {
 		this.dataDeAdmissao.set(dataDeAdmissao);
 	}
 
-	public boolean isStatusDoFuncionario() {
+	public boolean getStatusDoFuncionario() {
 		return statusDoFuncionario.get();
 	}
 
@@ -108,12 +120,19 @@ public class FuncionarioEntity {
 		this.statusDoFuncionario.set(statusDoFuncionario);
 	}
 
-	public boolean isTemAgenda() {
+	public boolean getTemAgenda() {
 		return temAgenda.get();
 	}
 
 	public void setTemAgenda(boolean temAgenda) {
 		this.temAgenda.set(temAgenda);
+	}
+	public String getPis() {
+		return pis.get();
+	}
+
+	public void setPis(String temAgenda) {
+		this.pis.set(temAgenda);
 	}
 
 	public UsuarioEntity getUsuario() {

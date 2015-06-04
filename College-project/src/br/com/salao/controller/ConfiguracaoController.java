@@ -1,9 +1,9 @@
 package br.com.salao.controller;
 
-import br.com.salao.dao.FuncionarioDAO;
+import br.com.salao.dao.ConfiguracaoDao;
 import br.com.salao.interfaces.IController;
 
-public class FuncionarioController implements IController{
+public class ConfiguracaoController implements IController{
 
 	@Override
 	public void Excluir(Object objeto) {
@@ -20,10 +20,8 @@ public class FuncionarioController implements IController{
 	@Override
 	public boolean Inserir(Object objeto) {
 		// TODO Auto-generated method stub
-		System.out.println("passou aki controller funcio");
-		FuncionarioDAO fDao = new FuncionarioDAO();
-		return fDao.Inserir(objeto);
-		
+		ConfiguracaoDao cDao = new ConfiguracaoDao();
+		return cDao.Inserir(objeto);
 	}
 
 	@Override
@@ -31,5 +29,5 @@ public class FuncionarioController implements IController{
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 }

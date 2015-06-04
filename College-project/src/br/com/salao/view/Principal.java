@@ -23,7 +23,6 @@ import br.com.salao.entity.ClienteEntity;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -381,7 +380,7 @@ public class Principal extends Application {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				if(cadastroEmpresaView.cadastrarEmpresa()) goToLogin();
+				if(cadastroEmpresaView.cadastrarEmpresa()){System.out.println("Implantação com sucesso"); goToLogin();}
 			}
 		});
 

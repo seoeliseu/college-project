@@ -30,7 +30,7 @@ public class ClienteDAO implements IDao {
 	}
 
 	@Override
-	public void Inserir(Object objeto) {
+	public boolean Inserir(Object objeto) {
 		JDBCConnection conn = FactoryEntity.getInstance().connection();
 		conn.getConnection();
 		ResultSet rs = null;
@@ -38,12 +38,20 @@ public class ClienteDAO implements IDao {
 		ClienteEntity cliente = (ClienteEntity)objeto;
 		String sql = "";
 		sql+= INSERT+"CLIENTE (nome, email, dataDeNascimento, endereco_id )";
+		
+		return true;
 	}
 
 	@Override
 	public Object Pesquisar(Object objeto) {
 		ClienteEntity cliente = (ClienteEntity)objeto;
 		return null;
+	}
+
+	@Override
+	public int getId(Object objeto) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

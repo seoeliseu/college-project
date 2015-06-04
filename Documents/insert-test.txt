@@ -1,0 +1,51 @@
+insert into contatos (telefone1) values('6292929292');
+
+insert into pais(nome) values('Brasil');
+insert into estado(nome, pais_id) values('Goiás',1);
+insert into cidade(nome, Estado_id) values('Goiânia',1);
+insert into cargo(funcao, salario) values ('Gerente', 1500);
+
+
+insert into endereco(cep, bairro, rua, numero,pais_id) values('74000000','jardim','rua','sn', 1);
+
+insert into empresa(nm_fantasia, raz_Social, cnpj, contatos_id, endereco_id) values ('Empresa', 'asda545','1234567891234', 1,1);
+
+INSERT into endereco(cep, bairro, rua, numero, complemento, cidade_id) VALUES ('123','rosa','rua 14','100','qd 15',1);
+
+
+select * from estado;
+
+select * from cidade;
+
+
+select * from pais,estado,cidade;
+select * from empresa;
+select * from configuracao;
+
+delete from estado where id = 2;
+
+delete from pais where id  = 1;
+delete * from empresa;
+delete * from configuracao;
+delete * from endereco;
+delete * from contato;
+
+delete from configuracao where id = (select id_config from configuracao);
+
+insert into pais(nome) values('Brasil');
+insert into estado(nome, pais_id) values('Goiás',1);
+insert into cidade(nome, Estado_id) values('Goiânia',1);
+
+insert into cargo(funcao, salario) values ('Gerente', 1500);
+
+select * from empresa;
+select * from configuracao;
+select * from endereco;
+select * from cargo;
+delete  from empresa;
+delete  from configuracao;
+delete  from endereco where id = 3;
+delete  from contatos where id=1;
+delete  from configuracao where id_config=3;
+
+TRUNCATE TABLE contatos;
