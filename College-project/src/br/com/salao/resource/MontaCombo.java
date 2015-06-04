@@ -57,4 +57,20 @@ public class MontaCombo {
 			e.printStackTrace();
 		}
 	}
+	
+	public void getCargos(ObservableList<String> cargos){
+
+		Connection conn = FactoryEntity.getInstance().connection().getConnection();
+		ResultSet rs = null;
+		String sql = "SELECT funcao FROM cargo ORDER BY ID;";
+		try {
+			rs = conn.prepareStatement(sql).executeQuery();
+			
+			while(rs.next()){
+				cargos.add(rs.getString("funcao"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }

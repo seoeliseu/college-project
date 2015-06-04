@@ -8,15 +8,25 @@ public class EmpresaEntity {
 	private SimpleStringProperty cnpj;
 	private ContatoEntity contato;
 	private EnderecoEntity endereco;
+	private ConfiguracaoEntity config;
 
 	public EmpresaEntity(String nomeFantasia, String razaoSocial, String cnpj,
-			ContatoEntity contato, EnderecoEntity endereco) {
+			ContatoEntity contato, EnderecoEntity endereco, ConfiguracaoEntity config) {
 		
 		this.nomeFantasia = new SimpleStringProperty(nomeFantasia);
 		this.razaoSocial = new SimpleStringProperty(razaoSocial);
 		this.cnpj = new SimpleStringProperty(cnpj);
 		this.contato = contato;
 		this.endereco = endereco;
+		this.config = config;
+	}
+
+	public ConfiguracaoEntity getConfig() {
+		return config;
+	}
+
+	public void setConfig(ConfiguracaoEntity config) {
+		this.config = config;
 	}
 
 	public String getNomeFantasia() {

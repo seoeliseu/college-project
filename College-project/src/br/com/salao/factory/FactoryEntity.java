@@ -2,6 +2,7 @@ package br.com.salao.factory;
 
 import br.com.salao.entity.CargoEntity;
 import br.com.salao.entity.ClienteEntity;
+import br.com.salao.entity.ConfiguracaoEntity;
 import br.com.salao.entity.ContatoEntity;
 import br.com.salao.entity.EmpresaEntity;
 import br.com.salao.entity.EnderecoEntity;
@@ -50,9 +51,9 @@ public class FactoryEntity {
 
 	public EmpresaEntity empresaEntity(String razaoSocial,
 			String nomeFantasia, String cnpj, ContatoEntity contato,
-			EnderecoEntity endereco) {
+			EnderecoEntity endereco, ConfiguracaoEntity config) {
 		return new EmpresaEntity(razaoSocial, nomeFantasia, cnpj, contato,
-				endereco);
+				endereco, config);
 	}
 
 	public EnderecoEntity enderecoEntity(int id_pais, int id_estado,
@@ -62,14 +63,14 @@ public class FactoryEntity {
 				numero, complemento);
 	}
 
-	public FuncionarioEntity funcionarioEntity(String nome, String cpf,
-			String rg, CargoEntity cargo, ContatoEntity contato,
+	public FuncionarioEntity funcionarioEntity(String nome,String ctps, String cpf,
+			String rg, int cargo_id, ContatoEntity contato,
 			EnderecoEntity endereco, String dataDeNascimento,
 			String dataDeAdmissao, boolean statusDoFuncionario,
-			boolean temAgenda, UsuarioEntity usuario) {
-		return new FuncionarioEntity(nome, cpf, rg, cargo, contato, endereco,
+			boolean temAgenda, UsuarioEntity usuario, String pis) {
+		return new FuncionarioEntity(nome,ctps, cpf, rg, cargo_id, contato, endereco,
 				dataDeNascimento, dataDeAdmissao, statusDoFuncionario,
-				temAgenda, usuario);
+				temAgenda, usuario, pis);
 	}
 
 	public ProdutoEntity produtoEntity(String nome, double valor, int tempo){
@@ -84,6 +85,8 @@ public class FactoryEntity {
 		return new UsuarioEntity(nomeDeUsuario, senha, tipo);
 	}
 
-
+	public ConfiguracaoEntity configuracaoEntity(long hora_fechamento, float cred_aniversario,float cred_fidelidade){
+		return new ConfiguracaoEntity(hora_fechamento, cred_aniversario, cred_fidelidade);
+	}
 
 }

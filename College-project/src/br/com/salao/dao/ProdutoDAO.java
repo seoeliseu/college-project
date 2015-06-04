@@ -5,13 +5,6 @@ import br.com.salao.interfaces.IDao;
 
 public class ProdutoDAO implements IDao{
 
-	private final String INSERT = " INSERT ";
-	private final String SELECT = " SELECT ";
-	private final String INTO = " INTO ";
-	private final String FROM = " FROM ";
-	private final String WHERE = " WHERE ";
-	private final String UPDATE = " UPDATE ";
-	
 	@Override
 	public void Excluir(Object objeto) {
 		ProdutoEntity produto = (ProdutoEntity)objeto;		
@@ -23,14 +16,22 @@ public class ProdutoDAO implements IDao{
 	}
 
 	@Override
-	public void Inserir(Object objeto) {
-		ProdutoEntity produto = (ProdutoEntity)objeto;		
+	public boolean Inserir(Object objeto) {
+		ProdutoEntity produto = (ProdutoEntity)objeto;
+		
+		return true;
 	}
 
 	@Override
 	public Object Pesquisar(Object objeto) {
 		ProdutoEntity produto = (ProdutoEntity)objeto;
 		return null;
+	}
+
+	@Override
+	public int getId(Object objeto) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

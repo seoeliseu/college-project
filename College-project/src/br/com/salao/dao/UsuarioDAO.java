@@ -1,36 +1,84 @@
 package br.com.salao.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import br.com.salao.entity.ContatoEntity;
 import br.com.salao.entity.UsuarioEntity;
+import br.com.salao.factory.FactoryEntity;
 import br.com.salao.interfaces.IDao;
 
-public class UsuarioDAO implements IDao{
+public class UsuarioDAO implements IDao {
 
-	private final String INSERT = " INSERT ";
-	private final String SELECT = " SELECT ";
-	private final String INTO = " INTO ";
-	private final String FROM = " FROM ";
-	private final String WHERE = " WHERE ";
-	private final String UPDATE = " UPDATE ";
-	
 	@Override
 	public void Excluir(Object objeto) {
-		UsuarioEntity produto = (UsuarioEntity)objeto;		
+		UsuarioEntity produto = (UsuarioEntity) objeto;
 	}
 
 	@Override
 	public void Alterar(Object objeto) {
-		UsuarioEntity produto = (UsuarioEntity)objeto;		
+		UsuarioEntity produto = (UsuarioEntity) objeto;
 	}
 
 	@Override
-	public void Inserir(Object objeto) {
-		UsuarioEntity produto = (UsuarioEntity)objeto;		
+	public boolean Inserir(Object objeto) {
+		UsuarioEntity produto = (UsuarioEntity) objeto;
+
+		Connection connection = FactoryEntity.getInstance().connection()
+				.getConnection();
+
+		PreparedStatement pstm = null;
+
+		UsuarioEntity usuario = (UsuarioEntity) objeto;
+
+		String insertUsuario = "";
+
+		insertUsuario += INSERT + "usuario(nome_usuario, senha_usuario, tipo)";
+		insertUsuario += "VALUES (?,?,?,?)";
+
+		try {
+			pstm = connection.prepareStatement(insertUsuario);
+			pstm.setString(1, usuario.getNomeDeUsuario());
+			pstm.setString(2, usuario.getSenha());	
+			pstm.setBoolean(3, usuario.getTipo());
+
+			pstm.execute();
+
+			connection.commit();
+
+			connection.close();
+			pstm.close();
+			
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override
 	public Object Pesquisar(Object objeto) {
-		UsuarioEntity produto = (UsuarioEntity)objeto;
+		UsuarioEntity produto = (UsuarioEntity) objeto;
 		return null;
+	}
+
+	@Override
+	public int getId(Object objeto) {
+		// TODO Auto-generated method stub
+		UsuarioEntity usuario = (UsuarioEntity)objeto;
+		Connection connection = FactoryEntity.getInstance().connection().getConnection();
+		try {
+			ResultSet rs = connection.prepareStatement(SELECT+"usuario.id"+FROM+"usuario"+WHERE+"nome_usuario = "+
+					usuario.getNomeDeUsuario()+AND+"senha_usuario = "+usuario.getSenha()+AND+"tipo = "+usuario.getTipo()).executeQuery();
+			while(rs.next()) return rs.getInt("id");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return -1;
 	}
 
 }

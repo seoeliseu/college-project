@@ -31,7 +31,7 @@ public class UsuarioEntity {
 		this.Senha.set(senha);
 	}
 
-	public boolean isTipo() {
+	public boolean getTipo() {
 		return tipo.get();
 	}
 

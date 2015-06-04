@@ -31,14 +31,20 @@ public class ClienteController implements IDao {
 	}
 
 	@Override
-	public void Inserir(Object objeto) {
-
+	public boolean Inserir(Object objeto) {
+		return false;
 	}
 
 	@Override
 	public Object Pesquisar(Object objeto) {
 
 		return null;
+	}
+
+	@Override
+	public int getId(Object objeto) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }
