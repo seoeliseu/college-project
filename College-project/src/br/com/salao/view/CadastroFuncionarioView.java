@@ -26,7 +26,6 @@ public class CadastroFuncionarioView extends AnchorPane {
 	public PasswordField pfSenha;
 
 	public CadastroFuncionarioView() {
-		// TODO Auto-generated constructor stub
 		iniComponents();
 		iniLayout();
 	}
@@ -100,8 +99,6 @@ public class CadastroFuncionarioView extends AnchorPane {
 		cbCargo = new ComboBox<>();
 		cbCargo.setPrefWidth(180);
 		
-		
-
 		btCadastrar = new Button("Cadastrar");
 		btCadastrar.setPrefSize(100, 30);
 

@@ -8,9 +8,7 @@ import java.sql.SQLException;
 import br.com.salao.controller.ContatoController;
 import br.com.salao.entity.ClienteEntity;
 import br.com.salao.factory.FactoryDAO;
-import br.com.salao.factory.FactoryEntity;
 import br.com.salao.interfaces.IDao;
-import br.com.salao.resource.JDBCConnection;
 
 public class ClienteDAO implements IDao {
 	@Override
@@ -26,6 +24,7 @@ public class ClienteDAO implements IDao {
 	@Override
 	public boolean Inserir(Object objeto) {
 		Connection conn = FactoryDAO.getInstance().connection();
+		@SuppressWarnings("unused")
 		ResultSet rs = null;
 		PreparedStatement pstm = null;
 		ClienteEntity cliente = (ClienteEntity)objeto;
@@ -66,7 +65,6 @@ public class ClienteDAO implements IDao {
 
 	@Override
 	public int getId(Object objeto) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 

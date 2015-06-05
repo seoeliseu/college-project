@@ -1,7 +1,5 @@
 package br.com.salao.interfaces;
 
-import br.com.salao.factory.FactoryEntity;
-
 public interface IDao {
 	
 	final String INSERT = " INSERT INTO ";

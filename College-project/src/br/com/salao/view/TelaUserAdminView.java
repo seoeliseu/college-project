@@ -13,27 +13,20 @@ public class TelaUserAdminView extends VBox{
     public MenuItem miAddCliente,miAddServico,miAddFuncionario, 
     miSetCliente, miSetServicoAgenda, miSetFuncionario,miSetServico, miSetEmpresa,miSetParamentros,
     	miFindCliente, miShowServicos, miShowAgendaGeral, miShowDadosUsuario,miFindFuncionario, 
-    	
     	miRelServicos;
-    
-    
 	
 	public TelaUserAdminView(){
-		// TODO Auto-generated constructor stub
 		iniComponents();
 		iniLayout();
 	}
 	
 	private void iniComponents(){
 		
-		
 		setPrefSize(1100, 660);
 		paneMenuBar = new AnchorPane();
 		paneMenuBar.setPrefSize(790, 50);
 		
-		
 		menuBar = new MenuBar();
-		
 		
 		mCadastrar = new Menu("Cadastro");
 		mEditar = new Menu("Editar");
@@ -68,20 +61,14 @@ public class TelaUserAdminView extends VBox{
 		mConsultar.getItems().addAll(miFindCliente, miShowAgendaGeral, miShowServicos, miShowDadosUsuario, miFindFuncionario);
 		mRelatorio.getItems().addAll(miRelServicos);
 		
-		
-		
-		
 		menuBar.getMenus().addAll(mCadastrar,mEditar,mConsultar,mRelatorio);
 		paneMenuBar.getChildren().add(menuBar);
 		
-		
 		getChildren().addAll(paneMenuBar);
-		
 	}
 	
 	private void iniLayout(){
 		menuBar.setLayoutX(0);
 		menuBar.setLayoutY(0);
 	}
-	
 }

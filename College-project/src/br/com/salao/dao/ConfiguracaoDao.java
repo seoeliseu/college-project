@@ -15,19 +15,14 @@ public class ConfiguracaoDao implements IDao {
 
 	@Override
 	public void Excluir(Object objeto) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void Alterar(Object objeto) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public boolean Inserir(Object objeto) {
-		// TODO Auto-generated method stub
 		Connection connection = FactoryDAO.getInstance().connection();
 		
 		PreparedStatement pstm = null;
@@ -58,13 +53,11 @@ public class ConfiguracaoDao implements IDao {
 
 	@Override
 	public Object Pesquisar(Object objeto) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public int getId(Object objeto) {
-		// TODO Auto-generated method stub
 		ConfiguracaoEntity config = (ConfiguracaoEntity)objeto;
 		Connection connection = FactoryDAO.getInstance().connection();
 		try {
@@ -74,7 +67,6 @@ public class ConfiguracaoDao implements IDao {
 			while(rs.next()) return rs.getInt("id_config");
 			connection.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return -1;

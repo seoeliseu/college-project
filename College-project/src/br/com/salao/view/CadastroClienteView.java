@@ -18,7 +18,6 @@ public class CadastroClienteView extends AnchorPane {
 	private ClienteController control;
 
 	public CadastroClienteView() {
-		// TODO Auto-generated constructor stub
 		iniComponents();
 		iniLayout();
 		control = new ClienteController();
@@ -57,7 +56,6 @@ public class CadastroClienteView extends AnchorPane {
 		getChildren().addAll(lbNome, lbDataNascimento, lbRg, lbTelOne,
 				lbTelTwo, lbEmail, tfNome, dpDataNascimento, tfRg, tfTelOne,
 				tfTelTwo, tfEmail, btCadastrar, btAtualizar, btCancelar);
-
 	}
 
 	private void iniLayout() {

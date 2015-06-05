@@ -1,7 +1,5 @@
 package br.com.salao.view;
 
-import br.com.salao.entity.ClienteEntity;
-import br.com.salao.entity.ProdutoEntity;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
@@ -10,7 +8,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import jdk.nashorn.internal.codegen.Emitter;
+import br.com.salao.entity.ClienteEntity;
 
 public class ClienteEntityView extends AnchorPane{
 	
@@ -27,7 +25,6 @@ public class ClienteEntityView extends AnchorPane{
 	
 	
 	public ClienteEntityView() {
-		// TODO Auto-generated constructor stub
 		iniComponents();
 		iniLayout();
 	}

@@ -1,12 +1,9 @@
 package br.com.salao.view;
 
-import javafx.application.Application;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 
 public class CadastroServicoView extends AnchorPane{
 	
@@ -15,12 +12,9 @@ public class CadastroServicoView extends AnchorPane{
 	private TextField tfServico, tfValor, tfTime;
 	
 	public CadastroServicoView() {
-		// TODO Auto-generated constructor stub
 		iniComponets();
 		iniLayout();
 	}
-	
-	
 	
 	private void iniComponets(){
 		lbServico = new Label("Serviço: ");

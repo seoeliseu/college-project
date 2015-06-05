@@ -1,7 +1,5 @@
 package br.com.salao.interfaces;
 
-import br.com.salao.entity.UsuarioEntity;
-
 public interface IAutentica {
 
 	

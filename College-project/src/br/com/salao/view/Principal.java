@@ -15,21 +15,15 @@
 
 package br.com.salao.view;
 
-import java.sql.Date;
-
-import com.sun.org.apache.bcel.internal.generic.INSTANCEOF;
-
-import br.com.salao.ValidacaoUtil.ValidacaoUtil;
-import br.com.salao.controller.*;
-import br.com.salao.entity.ClienteEntity;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import br.com.salao.ValidacaoUtil.ValidacaoUtil;
+import br.com.salao.controller.AutenticaController;
 
 public class Principal extends Application {
 	public final String LOGIN_VIEW = "login_view";
@@ -58,7 +52,6 @@ public class Principal extends Application {
 
 	@Override
 	public void start(Stage stage) throws Exception {
-		// TODO Auto-generated method stub
 		iniComponents();
 
 		iniListenersLoginView();
@@ -132,7 +125,6 @@ public class Principal extends Application {
 
 	}
 
-	// Declaração dos eventos da classe loginView
 	private void iniListenersLoginView() {
 		loginView.btLogin.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -167,7 +159,6 @@ public class Principal extends Application {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				// TODO Auto-generated method stub
 				System.exit(0);
 			}
 		});
@@ -176,7 +167,6 @@ public class Principal extends Application {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				// TODO Auto-generated method stub
 				goToRecuperarSenha();
 			}
 		});
@@ -191,7 +181,6 @@ public class Principal extends Application {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				// TODO Auto-generated method stub
 				goToCadastroServico();
 			}
 		});
@@ -201,7 +190,6 @@ public class Principal extends Application {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				// TODO Auto-generated method stub
 				goToCadastroFuncionario();
 			}
 		});
@@ -210,7 +198,6 @@ public class Principal extends Application {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				// TODO Auto-generated method stub
 				goToCadastroCliente();
 			}
 		});
@@ -220,7 +207,6 @@ public class Principal extends Application {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				// TODO Auto-generated method stub
 				goToConsultarCliente();
 			}
 		});
@@ -230,7 +216,6 @@ public class Principal extends Application {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				// TODO Auto-generated method stub
 				goToConsultaAgendamentosView();
 			}
 		});
@@ -240,7 +225,6 @@ public class Principal extends Application {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				// TODO Auto-generated method stub
 				goToConsultarFuncionarioView();
 			}
 		});
@@ -250,7 +234,6 @@ public class Principal extends Application {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				// TODO Auto-generated method stub
 				goToConfiguracaoView();
 			}
 		});
@@ -262,7 +245,6 @@ public class Principal extends Application {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				// TODO Auto-generated method stub
 				goToUsersView();
 			}
 		});
@@ -274,7 +256,6 @@ public class Principal extends Application {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				// TODO Auto-generated method stub
 				goToUsersView();
 			}
 		});
@@ -302,7 +283,6 @@ public class Principal extends Application {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				// TODO Auto-generated method stub
 				goToUsersView();
 			}
 		});
@@ -315,7 +295,6 @@ public class Principal extends Application {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				// TODO Auto-generated method stub
 				goToUsersView();
 			}
 		});
@@ -328,7 +307,6 @@ public class Principal extends Application {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				// TODO Auto-generated method stub
 				goToUsersView();
 			}
 		});
@@ -342,7 +320,6 @@ public class Principal extends Application {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				// TODO Auto-generated method stub
 				goToLogin();
 			}
 		});
@@ -355,7 +332,6 @@ public class Principal extends Application {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				// TODO Auto-generated method stub
 				goToLogin();
 			}
 		});
@@ -364,7 +340,6 @@ public class Principal extends Application {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				// TODO Auto-generated method stub
 				goToCadastroCliente();
 			}
 		});
@@ -374,7 +349,6 @@ public class Principal extends Application {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				// TODO Auto-generated method stub
 				goToListarServicoView();
 			}
 		});
@@ -384,7 +358,6 @@ public class Principal extends Application {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				// TODO Auto-generated method stub
 				goToConsultarCliente();
 			}
 		});
@@ -411,7 +384,6 @@ public class Principal extends Application {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				// TODO Auto-generated method stub
 				System.exit(0);
 			}
 		});
@@ -423,7 +395,6 @@ public class Principal extends Application {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				// TODO Auto-generated method stub
 				goToUsersView();
 			}
 		});
@@ -433,7 +404,6 @@ public class Principal extends Application {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				// TODO Auto-generated method stub
 				goToClienteEntityView();
 			}
 		});
@@ -445,7 +415,6 @@ public class Principal extends Application {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				// TODO Auto-generated method stub
 				goToConsultarCliente();
 			}
 		});
@@ -455,12 +424,10 @@ public class Principal extends Application {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				// TODO Auto-generated method stub
 
 				try {
 					agendarServicoView.start(agendarServicoView.stage);
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
@@ -474,7 +441,6 @@ public class Principal extends Application {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				// TODO Auto-generated method stub
 				agendarServicoView.stage.close();
 			}
 		});
@@ -486,7 +452,6 @@ public class Principal extends Application {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				// TODO Auto-generated method stub
 				goToUsersView();
 			}
 		});
@@ -499,7 +464,6 @@ public class Principal extends Application {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				// TODO Auto-generated method stub
 				goToUsersView();
 			}
 		});

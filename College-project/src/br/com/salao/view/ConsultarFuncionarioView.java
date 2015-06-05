@@ -54,7 +54,6 @@ public class ConsultarFuncionarioView extends AnchorPane{
 		telTwoCol = new TableColumn<FuncionarioEntity, String>("Telefone");
 		telTwoCol.setMinWidth(200);
 		
-		
 		tableFuncionario.getColumns().addAll(nomeCol,cargoCol, telOneCol, telTwoCol);
 		
 		getChildren().addAll(tableFuncionario, btVoltar,tfPesquisar, btPesquisar, btCadastrarFuncionario, btExibirAllData, btEditar, btDeletar, btSetUser, btRemoveUser);

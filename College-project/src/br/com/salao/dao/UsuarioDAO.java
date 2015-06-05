@@ -53,7 +53,6 @@ public class UsuarioDAO implements IDao {
 			
 			return true;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
 		}
@@ -78,7 +77,6 @@ public class UsuarioDAO implements IDao {
 
 	@Override
 	public int getId(Object objeto) {
-		// TODO Auto-generated method stub
 		UsuarioEntity usuario = (UsuarioEntity)objeto;
 		Connection connection = FactoryDAO.getInstance().connection();
 		try {

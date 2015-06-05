@@ -9,7 +9,6 @@ public class ConfiguracaoEntity {
 	private SimpleFloatProperty cred_fidelidade;
 	
 	public ConfiguracaoEntity(long hora_fechamento, float cred_aniversario,float cred_fidelidade) {
-		// TODO Auto-generated constructor stub
 		this.hora_fechamento = new SimpleLongProperty(hora_fechamento);
 		this.cred_aniversario = new SimpleFloatProperty(cred_aniversario);
 		this.cred_fidelidade = new SimpleFloatProperty(cred_fidelidade);

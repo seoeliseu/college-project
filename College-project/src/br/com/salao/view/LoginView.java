@@ -15,11 +15,6 @@
 
 package br.com.salao.view;
 
-import br.com.salao.controller.AutenticaController;
-import br.com.salao.entity.UsuarioEntity;
-import br.com.salao.interfaces.IAutentica;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
@@ -27,6 +22,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import br.com.salao.controller.AutenticaController;
+import br.com.salao.entity.UsuarioEntity;
+import br.com.salao.interfaces.IAutentica;
 
 public class LoginView extends AnchorPane{
 	public Scene scene;
@@ -37,7 +35,6 @@ public class LoginView extends AnchorPane{
 	public Hyperlink hlRecuperarSenha;
 	
 	public LoginView() {
-		// TODO Auto-generated constructor stub
 		iniComponents();
 		iniLayout();
 	}
@@ -54,13 +51,8 @@ public class LoginView extends AnchorPane{
 		btQuit = new Button("Sair");
 		btQuit.setPrefSize(100, 30);
 		
-		
 		setStyle("-fx-background-color: linear-gradient( from 0% 0% to 0% 0%, #87CEFB 0%, #DCDCDC 100%);");
-		
-		
 		setPrefSize(520, 450);
-
-		
 		getChildren().addAll(lbuser,tfuser,lbpassword,pfpassword,hlRecuperarSenha,btLogin,btQuit);
 		
 	}

@@ -54,7 +54,6 @@ public class EnderecoDAO implements IDao{
 			
 			return true;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
 		}
@@ -69,7 +68,6 @@ public class EnderecoDAO implements IDao{
 
 	@Override
 	public int getId(Object objeto) {
-		// TODO Auto-generated method stub
 		EnderecoEntity endereco = (EnderecoEntity)objeto;
 		Connection connection = FactoryDAO.getInstance().connection();
 		try {
@@ -84,7 +82,6 @@ public class EnderecoDAO implements IDao{
 			while(rs.next()) return rs.getInt("id");
 			connection.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return -1;

@@ -18,7 +18,6 @@ public class RecuperarSenhaView extends AnchorPane{
 		iniLayout();
 	}
 	
-	
 	private void iniComponents(){
 		setPrefSize(500, 400);
 		lbCpf = new Label("CPF:*");
@@ -52,6 +51,4 @@ public class RecuperarSenhaView extends AnchorPane{
 		btCancelar.setLayoutX(300);
 		btCancelar.setLayoutY(270);
 	}
-	
-	
 }

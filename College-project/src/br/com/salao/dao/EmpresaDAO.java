@@ -32,7 +32,6 @@ public class EmpresaDAO implements IDao {
 		Connection connection = FactoryDAO.getInstance().connection();
 		Savepoint savepoint = null;
 		PreparedStatement pstm = null;
-		System.out.println("Passei aqui");
 		try {
 
 			EmpresaEntity empresa = (EmpresaEntity) objeto;
@@ -79,7 +78,6 @@ public class EmpresaDAO implements IDao {
 				connection.rollback(savepoint);
 				return false;
 			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 				return false;
 			}
@@ -94,7 +92,6 @@ public class EmpresaDAO implements IDao {
 
 	@Override
 	public int getId(Object objeto) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 

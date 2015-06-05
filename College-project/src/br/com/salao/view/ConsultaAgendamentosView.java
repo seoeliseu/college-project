@@ -26,7 +26,6 @@ public class ConsultaAgendamentosView extends AnchorPane{
 	private ObservableList data;
 	
 	public ConsultaAgendamentosView() {
-		// TODO Auto-generated constructor stub
 		iniComponents();
 		iniLayout();
 	}

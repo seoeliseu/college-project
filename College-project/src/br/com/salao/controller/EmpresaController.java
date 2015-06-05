@@ -2,7 +2,6 @@ package br.com.salao.controller;
 
 import br.com.salao.dao.EmpresaDAO;
 import br.com.salao.interfaces.IController;
-import br.com.salao.interfaces.IDao;
 
 public class EmpresaController implements IController {
 
@@ -18,7 +17,6 @@ public class EmpresaController implements IController {
 
 	@Override
 	public boolean Inserir(Object objeto) {
-		System.out.println("Passei aqui2");
 		EmpresaDAO empDAO = new EmpresaDAO();
 		return empDAO.Inserir(objeto);
 	}

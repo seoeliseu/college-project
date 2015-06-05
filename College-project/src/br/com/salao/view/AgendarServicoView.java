@@ -27,18 +27,14 @@ public class AgendarServicoView extends Application{
 	}
 	
 	public AgendarServicoView() {
-		// TODO Auto-generated constructor stub
 		iniComponents();
 		iniLayout();
 	}
 	
 	@Override
 	public void start(Stage stage) throws Exception {
-		// TODO Auto-generated method stub
-		
 		
 		stage = this.stage;
-		
 		stage.setScene(scene);
 		stage.setTitle("Agendamento de serviço");
 		stage.show();
@@ -75,6 +71,7 @@ public class AgendarServicoView extends Application{
 		
 		scene = new Scene(pane);
 	}
+	
 	private void iniLayout(){
 		lbServico.setLayoutX(80);
 		lbServico.setLayoutY(80);

@@ -81,7 +81,6 @@ public class FuncionarioDAO implements IDao{
 				connection.rollback(savepoint);
 				return false;
 			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 				return false;
 			}
@@ -96,7 +95,6 @@ public class FuncionarioDAO implements IDao{
 
 	@Override
 	public int getId(Object objeto) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
