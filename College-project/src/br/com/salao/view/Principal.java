@@ -140,25 +140,25 @@ public class Principal extends Application {
 			public void handle(ActionEvent arg0) {
 
 				Object valor = loginView.login();
-				if(valor instanceof Boolean && (Boolean)valor == true){ 
+				if (valor instanceof Boolean && (Boolean) valor == true) {
 					AutenticaController.usuarioLogado = loginView.getUser(true);
 					goToTelaUserAdmin();
 				}
-				
-				if(valor instanceof Boolean && (Boolean)valor == false){ 
-					AutenticaController.usuarioLogado = loginView.getUser(false);
+
+				if (valor instanceof Boolean && (Boolean) valor == false) {
+					AutenticaController.usuarioLogado = loginView
+							.getUser(false);
 					goToTelaUserComum();
-				} 
-				
-				if(valor instanceof Integer && (Integer)valor == -1){
+				}
+
+				if (valor instanceof Integer && (Integer) valor == -1) {
 					testSenha++;
-					if(testSenha == 5) goToRecuperarSenha();
+					if (testSenha == 5)
+						goToRecuperarSenha();
 					loginView.tfuser.clear();
 					loginView.pfpassword.clear();
-					Alert alert = new Alert(AlertType.ERROR,"Usuario ou senha inválidos!");
-				    alert.setTitle("Mensagem");
-				    alert.setHeaderText(null);
-				    alert.show();
+					ValidacaoUtil.Alerta("Usuario ou senha incorretos!",
+							AlertType.ERROR);
 				}
 			}
 		});
@@ -288,18 +288,12 @@ public class Principal extends Application {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				ClienteController control = new ClienteController();
-				@SuppressWarnings("deprecation")
-				ClienteEntity cli = new ClienteEntity(
-						cadastroClienteView.tfNome.getText().toString(),
-						new Date(cadastroClienteView.dpDataNascimento
-								.getValue().getYear(),
-								cadastroClienteView.dpDataNascimento
-								.getValue().getMonthValue(),
-								cadastroClienteView.dpDataNascimento
-								.getValue().getDayOfMonth()));
-				control.Inserir(cli);
-				System.out.println("passou aqui");
+				if (cadastroClienteView.cadastrarCliente()){
+					cadastroClienteView.limpa();
+					ValidacaoUtil.Alerta(
+							"Cliente cadastrado com Sucesso!",
+							AlertType.INFORMATION);
+				}
 			}
 		});
 
@@ -405,7 +399,10 @@ public class Principal extends Application {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				if(cadastroEmpresaView.cadastrarEmpresa()){System.out.println("Implantação com sucesso"); goToLogin();}
+				if (cadastroEmpresaView.cadastrarEmpresa()) {
+					System.out.println("Implantação com sucesso");
+					goToLogin();
+				}
 			}
 		});
 

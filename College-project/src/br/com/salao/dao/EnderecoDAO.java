@@ -7,6 +7,7 @@ import java.sql.SQLException;
 
 import br.com.salao.entity.ContatoEntity;
 import br.com.salao.entity.EnderecoEntity;
+import br.com.salao.factory.FactoryDAO;
 import br.com.salao.factory.FactoryEntity;
 import br.com.salao.interfaces.IDao;
 
@@ -26,7 +27,7 @@ public class EnderecoDAO implements IDao{
 	public boolean Inserir(Object objeto) {
 		EnderecoEntity endereco = (EnderecoEntity)objeto;
 		
-		Connection connection = FactoryEntity.getInstance().connection().getConnection();
+		Connection connection = FactoryDAO.getInstance().connection();
 		
 		PreparedStatement pstm = null;
 		
@@ -70,14 +71,14 @@ public class EnderecoDAO implements IDao{
 	public int getId(Object objeto) {
 		// TODO Auto-generated method stub
 		EnderecoEntity endereco = (EnderecoEntity)objeto;
-		Connection connection = FactoryEntity.getInstance().connection().getConnection();
+		Connection connection = FactoryDAO.getInstance().connection();
 		try {
 			ResultSet rs = connection.prepareStatement(SELECT+"endereco.id"+FROM+"endereco"+WHERE
 					+"endereco.cep = "+endereco.getCep()+AND+"endereco.bairro = "+
 					"'"+endereco.getBairro().toString()+"'"+AND+"endereco.rua = "+
-					endereco.getRua()+AND+"endereco.numero = "+
-					endereco.getNumero()+AND+"endereco.complemento = "+
-					endereco.getComplemento()+AND+"endereco.cidade_id = "+
+					"'"+endereco.getRua()+"'"+AND+"endereco.numero = "+
+					"'"+endereco.getNumero()+"'"+AND+"endereco.complemento = "+
+					"'"+endereco.getComplemento()+"'"+AND+"endereco.cidade_id = "+
 					String.valueOf(endereco.getCidade())).executeQuery();
 			
 			while(rs.next()) return rs.getInt("id");

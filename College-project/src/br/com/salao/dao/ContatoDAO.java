@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import br.com.salao.entity.ContatoEntity;
+import br.com.salao.factory.FactoryDAO;
 import br.com.salao.factory.FactoryEntity;
 import br.com.salao.interfaces.IDao;
 
@@ -24,7 +25,7 @@ public class ContatoDAO implements IDao{
 
 	@Override
 	public boolean Inserir(Object objeto) {
-		Connection connection = FactoryEntity.getInstance().connection().getConnection();
+		Connection connection = FactoryDAO.getInstance().connection();
 		
 		PreparedStatement pstm = null;
 		
@@ -66,10 +67,10 @@ public class ContatoDAO implements IDao{
 	@Override
 	public int getId(Object objeto){
 		ContatoEntity contato = (ContatoEntity)objeto;
-		Connection connection = FactoryEntity.getInstance().connection().getConnection();
+		Connection connection = FactoryDAO.getInstance().connection();
 		try {
 			ResultSet rs = connection.prepareStatement(SELECT+"contatos.id"+FROM+"contatos"+WHERE+"telefone1 = "+
-					contato.getTelefone1()).executeQuery();
+					"'"+contato.getTelefone1()+"'").executeQuery();
 			while(rs.next()) return rs.getInt("id");
 			connection.close();
 		} catch (SQLException e) {
