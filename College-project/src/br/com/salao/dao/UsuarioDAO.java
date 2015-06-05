@@ -36,7 +36,7 @@ public class UsuarioDAO implements IDao {
 		String insertUsuario = "";
 
 		insertUsuario += INSERT + "usuario(nome_usuario, senha_usuario, tipo)";
-		insertUsuario += "VALUES (?,?,?,?)";
+		insertUsuario += "VALUES (?,?,?)";
 
 		try {
 			pstm = connection.prepareStatement(insertUsuario);
@@ -72,8 +72,9 @@ public class UsuarioDAO implements IDao {
 		Connection connection = FactoryEntity.getInstance().connection().getConnection();
 		try {
 			ResultSet rs = connection.prepareStatement(SELECT+"usuario.id"+FROM+"usuario"+WHERE+"nome_usuario = "+
-					usuario.getNomeDeUsuario()+AND+"senha_usuario = "+usuario.getSenha()+AND+"tipo = "+usuario.getTipo()).executeQuery();
+					"'"+usuario.getNomeDeUsuario()+"'"+AND+"senha_usuario = "+usuario.getSenha()+AND+"tipo = "+usuario.getTipo()).executeQuery();
 			while(rs.next()) return rs.getInt("id");
+			connection.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

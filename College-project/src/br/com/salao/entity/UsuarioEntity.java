@@ -10,9 +10,10 @@ public class UsuarioEntity {
 	private SimpleBooleanProperty tipo;
 
 	public UsuarioEntity(String nomeDeUsuario, String senha, boolean tipo) {
-		this.nomeDeUsuario.set(nomeDeUsuario);
-		this.Senha.set(senha);
-		this.tipo.set(tipo);
+		System.out.println("Nome de usuario = "+nomeDeUsuario);
+		this.nomeDeUsuario = new SimpleStringProperty(nomeDeUsuario);
+		this.Senha = new SimpleStringProperty(senha);
+		this.tipo = new SimpleBooleanProperty(tipo);
 	}
 
 	public String getNomeDeUsuario() {

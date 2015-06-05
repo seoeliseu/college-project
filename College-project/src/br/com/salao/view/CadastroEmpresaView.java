@@ -44,35 +44,35 @@ public class CadastroEmpresaView extends AnchorPane {
 	private ObservableList<String> pais;
 	private ObservableList<String> estado;
 	private ObservableList<String> cidade;
-	private ObservableList<String> cargos;
-	private final String restictToNumber = "[0-9\\s]*";
+	private ObservableList<String> cargo;
+	private final String restictToNumber = "[0-9:\\s]*";
 
 	// Declaração dos labels da empresa.
 	private Label lbEmpresa, lbNomeFantasia, lbRazaoSocial, lbCNPJ,
-			lbTelOneEmp, lbTelTwoEmp, lbEmailEmp, lbPaisEmp, lbEstadoEmp,
-			lbCepEmp, lbCidadeEmp, lbBairroEmp, lbRuaEmp, lbNumeroEmp,
-			lbComplementoEmp, lbCredNiver, lbCredFidel, lbFinalExpediente;
+	lbTelOneEmp, lbTelTwoEmp, lbEmailEmp, lbPaisEmp, lbEstadoEmp,
+	lbCepEmp, lbCidadeEmp, lbBairroEmp, lbRuaEmp, lbNumeroEmp,
+	lbComplementoEmp, lbCredNiver, lbCredFidel, lbFinalExpediente;
 
 	// Declaração dos labels do admin
 	private Label lbAdmin, lbNome, lbCTPS, lbRG, lbCPF, lbCargo, lbSalario,
-			lbDataNasc, lbTelOneAd, lbTelTwoAd, lbEmailAd, lbPaisAd,
-			lbEstadoAd, lbCepAd, lbCidadeAd, lbBairroAd, lbRuaAd, lbNumeroAd,
-			lbComplementoAd, lbUsuario, lbSenha, lbPis;
+	lbDataNasc, lbTelOneAd, lbTelTwoAd, lbEmailAd, lbPaisAd,
+	lbEstadoAd, lbCepAd, lbCidadeAd, lbBairroAd, lbRuaAd, lbNumeroAd,
+	lbComplementoAd, lbUsuario, lbSenha, lbPis;
 
 	public Button btCadastrar, btCancelar;
 
 	public DatePicker dpDataNascimento;
 	public ComboBox cbPaisEmp, cbEstadoEmp, cbCidadeEmp, cbPaisAd, cbEstadoAd,
-			cbCidadeAd, cbCargoAd;
+	cbCidadeAd, cbCargoAd;
 
 	public TextField tfNomeFantasia, tfRazaoSocial, tfCNPJ, tfTelOneEmp,
-			tfTelTwoEmp, tfEmailEmp, tfCepEmp, tfBairroEmp, tfRuaEmp,
-			tfNumeroEmp, tfComplementoEmp, tfCredNiver, tfCredFidel,
-			tfFinalExpediente;
+	tfTelTwoEmp, tfEmailEmp, tfCepEmp, tfBairroEmp, tfRuaEmp,
+	tfNumeroEmp, tfComplementoEmp, tfCredNiver, tfCredFidel,
+	tfFinalExpediente;
 
 	public TextField tfNome, tfCTPS, tfRG, tfCPF, tfSalario, tfTelOneAd,
-			tfTelTwoAd, tfEmailAd, tfCepAd, tfBairroAd, tfRuaAd, tfNumeroAd,
-			tfComplementoAd, tfUsuario, tfPis;
+	tfTelTwoAd, tfEmailAd, tfCepAd, tfBairroAd, tfRuaAd, tfNumeroAd,
+	tfComplementoAd, tfUsuario, tfPis;
 
 	public PasswordField pfSenha;
 
@@ -82,9 +82,9 @@ public class CadastroEmpresaView extends AnchorPane {
 		pais = FXCollections.observableArrayList();
 		estado = FXCollections.observableArrayList();
 		cidade = FXCollections.observableArrayList();
-		cargos = FXCollections.observableArrayList();
+		cargo = FXCollections.observableArrayList();
 		new MontaCombo().getPais(pais);
-		new MontaCombo().getCargos(cargos);
+		new MontaCombo().getCargo(cargo);
 
 		iniComponents();
 		iniLayout();
@@ -244,9 +244,9 @@ public class CadastroEmpresaView extends AnchorPane {
 					public void changed(
 							final ObservableValue<? extends String> ov,
 							final String oldValue, final String newValue) {
-						if (tfFinalExpediente.getText().length() > 4) {
+						if (tfFinalExpediente.getText().length() > 5) {
 							String s = tfFinalExpediente.getText().substring(0,
-									4);
+									5);
 							tfFinalExpediente.setText(s);
 						}
 					}
@@ -288,7 +288,7 @@ public class CadastroEmpresaView extends AnchorPane {
 
 		dpDataNascimento = new DatePicker();
 		ConfDatePicker.setConfDatePicker(dpDataNascimento);
-		
+
 		tfPis = new TextField();
 		tfPis.setPrefWidth(220);
 		btCadastrar = new Button("Cadastrar");
@@ -312,8 +312,8 @@ public class CadastroEmpresaView extends AnchorPane {
 		cbCidadeEmp = new ComboBox<>(cidade);
 		cbCidadeEmp.setPrefWidth(200);
 
-		cbCargoAd = new ComboBox<>(cargos);
-		cbCargoAd.setValue(cargos.get(0));
+		cbCargoAd = new ComboBox<>(cargo);
+		cbCargoAd.setValue(cargo.get(0));
 		cbCargoAd.setPrefWidth(200);
 
 		cbPaisAd = new ComboBox<>(pais);
@@ -511,7 +511,7 @@ public class CadastroEmpresaView extends AnchorPane {
 
 		dpDataNascimento.setLayoutX(635);
 		dpDataNascimento.setLayoutY(360);
-		
+
 		lbPis.setLayoutX(840);
 		lbPis.setLayoutY(365);
 
@@ -606,7 +606,8 @@ public class CadastroEmpresaView extends AnchorPane {
 
 	public boolean cadastrarEmpresa() {
 
-		System.out.println("Passei aqui 1");
+		String[] hora = this.tfFinalExpediente.getText().split(":");
+		String[] dtNascimento = this.dpDataNascimento.getValue().toString().split("-");
 		if (controlEmpresa.Inserir(FactoryEntity.getInstance()
 				.empresaEntity(
 						this.tfRazaoSocial.getText(),
@@ -616,22 +617,22 @@ public class CadastroEmpresaView extends AnchorPane {
 								this.tfEmailEmp.getText(),
 								this.tfTelOneEmp.getText(),
 								this.tfTelTwoEmp.getText()),
-						FactoryEntity.getInstance().enderecoEntity(
-								this.cbPaisEmp.getSelectionModel()
+								FactoryEntity.getInstance().enderecoEntity(
+										this.cbPaisEmp.getSelectionModel()
 										.getSelectedIndex() + 1,
-								this.cbEstadoEmp.getSelectionModel()
+										this.cbEstadoEmp.getSelectionModel()
 										.getSelectedIndex() + 1,
-								this.tfCepEmp.getText(),
-								this.cbCidadeEmp.getSelectionModel()
+										this.tfCepEmp.getText(),
+										this.cbCidadeEmp.getSelectionModel()
 										.getSelectedIndex() + 1,
-								this.tfBairroEmp.getText(),
-								this.tfRuaEmp.getText(),
-								this.tfNumeroEmp.getText(),
-								this.tfComplementoEmp.getText()),
-								FactoryEntity.getInstance().configuracaoEntity(Long.parseLong(
-										this.tfFinalExpediente.getText()),
-										Float.parseFloat(this.tfCredNiver.getText()),
-										Float.parseFloat(this.tfCredFidel.getText())))))
+										this.tfBairroEmp.getText(),
+										this.tfRuaEmp.getText(),
+										this.tfNumeroEmp.getText(),
+										this.tfComplementoEmp.getText()),
+										FactoryEntity.getInstance().configuracaoEntity(Long.parseLong(
+												hora[0]+hora[1]),
+												Float.parseFloat(this.tfCredNiver.getText()),
+												Float.parseFloat(this.tfCredFidel.getText())))))
 
 			return controlFuncionario.Inserir(FactoryEntity.getInstance()
 					.funcionarioEntity(
@@ -640,31 +641,31 @@ public class CadastroEmpresaView extends AnchorPane {
 							this.tfCPF.getText(),
 							this.tfRG.getText(),
 							this.cbCargoAd.getSelectionModel()
-									.getSelectedIndex() + 1,
+							.getSelectedIndex() + 1,
 							FactoryEntity.getInstance().contato(
 									this.tfEmailAd.getText(),
 									this.tfTelOneAd.getText(),
 									this.tfTelTwoAd.getText()),
-							FactoryEntity.getInstance().enderecoEntity(
-									this.cbPaisAd.getSelectionModel()
+									FactoryEntity.getInstance().enderecoEntity(
+											this.cbPaisAd.getSelectionModel()
 											.getSelectedIndex() + 1,
-									this.cbEstadoAd.getSelectionModel()
+											this.cbEstadoAd.getSelectionModel()
 											.getSelectedIndex() + 1,
-									this.tfCepAd.getText(),
-									this.cbCidadeAd.getSelectionModel()
+											this.tfCepAd.getText(),
+											this.cbCidadeAd.getSelectionModel()
 											.getSelectedIndex() + 1,
-									this.tfBairroAd.getText(),
-									this.tfRuaAd.getText(),
-									this.tfNumeroAd.getText(),
-									this.tfComplementoAd.getText()),
-							dpDataNascimento.getValue().toString(),
-							new SimpleDateFormat("dd/MM/yyyy").format(Calendar
-									.getInstance().getTime()),
-							true,
-							true,
-							FactoryEntity.getInstance().usuarioEntity(
-									this.tfUsuario.getText(),
-									this.pfSenha.getText(), true), this.tfPis.getText()));
+											this.tfBairroAd.getText(),
+											this.tfRuaAd.getText(),
+											this.tfNumeroAd.getText(),
+											this.tfComplementoAd.getText()),
+											dtNascimento[0]+dtNascimento[1]+dtNascimento[2],
+											new SimpleDateFormat("yyyyMMdd").format(Calendar
+													.getInstance().getTime()),
+													true,
+													true,
+													FactoryEntity.getInstance().usuarioEntity(
+															this.tfUsuario.getText(),
+															this.pfSenha.getText(), true), this.tfPis.getText()));
 		;
 		return false;
 	}
@@ -689,9 +690,9 @@ public class CadastroEmpresaView extends AnchorPane {
 						cidade.clear();
 						if (!newPropertyValue)
 							new MontaCombo()
-									.getCidade(cidade, cbEstadoEmp
-											.getSelectionModel()
-											.getSelectedIndex() + 1);
+						.getCidade(cidade, cbEstadoEmp
+								.getSelectionModel()
+								.getSelectedIndex() + 1);
 					}
 				});
 	}

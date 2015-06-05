@@ -39,12 +39,8 @@ public class EmpresaDAO implements IDao {
 			savepoint = connection.setSavepoint("Save_point");
 			String insertContato = "";
 
-	
-
 			ContatoController controlContato = new ContatoController();
 			controlContato.Inserir(empresa.getContato());
-
-	
 
 			EnderecoController controlEndereco = new EnderecoController();
 			controlEndereco.Inserir(empresa.getEndereco());
@@ -65,7 +61,6 @@ public class EmpresaDAO implements IDao {
 
 			pstm.setInt(4, contato_id);
 
-
 			int endereco_id = new EnderecoDAO().getId(empresa.getEndereco());
 			pstm.setInt(5, endereco_id);
 			
@@ -73,7 +68,6 @@ public class EmpresaDAO implements IDao {
 			pstm.setInt(6, configuracao_id);
 			
 			pstm.execute();
-
 			connection.commit();
 			connection.close();
 			pstm.close();
