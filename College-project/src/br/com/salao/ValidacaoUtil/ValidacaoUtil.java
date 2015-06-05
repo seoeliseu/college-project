@@ -1,15 +1,11 @@
 package br.com.salao.ValidacaoUtil;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import br.com.salao.factory.FactoryDAO;
-import br.com.salao.factory.FactoryEntity;
-import br.com.salao.resource.JDBCConnection;
 
 public class ValidacaoUtil {
 

@@ -13,7 +13,6 @@ public class ConfiguracaoView extends AnchorPane{
 	
 	
 	public ConfiguracaoView() {
-		// TODO Auto-generated constructor stub
 		iniComponents();
 		iniLayout();
 	}

@@ -30,7 +30,6 @@ public class ServicoDAO implements IDao{
 
 	@Override
 	public int getId(Object objeto) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 

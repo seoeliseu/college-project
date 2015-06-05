@@ -17,8 +17,6 @@ public class ListarServicoView extends AnchorPane{
 	private TableColumn<ProdutoEntity, Double> valorCol;
 	private TableColumn<ProdutoEntity, Integer> timeCol;
 	
-	
-	
 	private ObservableList<ProdutoEntity> data;
 	
 	public ListarServicoView(){
@@ -64,7 +62,6 @@ public class ListarServicoView extends AnchorPane{
 		
 		paneBody.getChildren().addAll(tableServico, btSair,btCadastrarServico, btDeletar, btEditar);
 		getChildren().addAll(paneBody);
-		
 		
 		data.add(new ProdutoEntity("Unha mao",15, 45));
 		data.add(new ProdutoEntity("Unha pé",15, 45));

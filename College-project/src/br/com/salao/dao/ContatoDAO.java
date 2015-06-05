@@ -7,7 +7,6 @@ import java.sql.SQLException;
 
 import br.com.salao.entity.ContatoEntity;
 import br.com.salao.factory.FactoryDAO;
-import br.com.salao.factory.FactoryEntity;
 import br.com.salao.interfaces.IDao;
 
 public class ContatoDAO implements IDao{
@@ -50,7 +49,6 @@ public class ContatoDAO implements IDao{
 			pstm.close();
 			return true;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
 		}
@@ -74,7 +72,6 @@ public class ContatoDAO implements IDao{
 			while(rs.next()) return rs.getInt("id");
 			connection.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return -1;

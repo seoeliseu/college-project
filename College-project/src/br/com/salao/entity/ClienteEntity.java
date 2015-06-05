@@ -23,30 +23,6 @@ public class ClienteEntity {
 		this.creditoFidelidade = new SimpleDoubleProperty(0);
 	}
 
-	// public ClienteEntity(String nome, String email, String rg, ContatoEntity
-	// contato,
-	// int dataDeNascimento, double creditoFidelidade) {
-	// super();
-	// this.nome = new SimpleStringProperty(nome);
-	// this.rg = new SimpleStringProperty(rg);
-	// this.contato = contato;
-	// this.dataDeNascimento = new SimpleIntegerProperty(dataDeNascimento);
-	// this.creditoFidelidade = new SimpleDoubleProperty(creditoFidelidade);
-	// }
-	//
-	// public ClienteEntity(String nome, ContatoEntity contato,
-	// int dataDeNascimento, double creditoFidelidade) {
-	// super();
-	// this.nome = new SimpleStringProperty(nome);
-	// this.contato = contato;
-	// this.dataDeNascimento = new SimpleIntegerProperty(dataDeNascimento);
-	// this.creditoFidelidade = new SimpleDoubleProperty(creditoFidelidade);
-	// }
-	//
-	// public ClienteEntity(String nome, int date) {
-	// this.nome = new SimpleStringProperty(nome);
-	// this.dataDeNascimento = new SimpleIntegerProperty(date);
-	// }
 	public String getNome() {
 		return this.nome.get();
 	}

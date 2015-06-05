@@ -1,12 +1,10 @@
 package br.com.salao.resource;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import br.com.salao.factory.FactoryDAO;
-import br.com.salao.factory.FactoryEntity;
 import javafx.collections.ObservableList;
 
 public class MontaCombo {

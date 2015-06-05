@@ -7,19 +7,14 @@ public class EnderecoController implements IController{
 
 	@Override
 	public void Excluir(Object objeto) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void Alterar(Object objeto) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public boolean Inserir(Object objeto) {
-		// TODO Auto-generated method stub
 		EnderecoDAO eDao = new EnderecoDAO();
 		return eDao.Inserir(objeto);
 		
@@ -27,7 +22,6 @@ public class EnderecoController implements IController{
 
 	@Override
 	public Object Pesquisar(Object objeto) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

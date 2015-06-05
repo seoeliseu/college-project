@@ -19,13 +19,11 @@ public class TelaUserComumView extends VBox{
     public Separator sepDownButtons;
 	
 	public TelaUserComumView(){
-		// TODO Auto-generated constructor stub
 		iniComponents();
 		iniLayout();
 	}
 	
 	private void iniComponents(){
-		
 		
 		setPrefSize(1100, 680);
 		paneMenuBar = new AnchorPane();
@@ -34,7 +32,6 @@ public class TelaUserComumView extends VBox{
 		paneBody.setPrefSize(790, 500);
 		
 		menuBar = new MenuBar();
-		
 		
 		mCadastrar = new Menu("Cadastro");
 		mEditar = new Menu("Editar");
@@ -93,5 +90,4 @@ public class TelaUserComumView extends VBox{
 		btSair.setLayoutX(1000);
 		btSair.setLayoutY(10);
 	}
-	
 }

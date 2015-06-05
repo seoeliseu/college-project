@@ -12,7 +12,6 @@
 
 package br.com.salao.view;
 
-import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -20,8 +19,6 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -32,7 +29,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import br.com.salao.controller.EmpresaController;
 import br.com.salao.controller.FuncionarioController;
-import br.com.salao.entity.UsuarioEntity;
 import br.com.salao.factory.FactoryEntity;
 import br.com.salao.resource.ConfDatePicker;
 import br.com.salao.resource.MontaCombo;
@@ -188,7 +184,6 @@ public class CadastroEmpresaView extends AnchorPane {
 				if (getText().length() > 2) {
 					setText(getText().substring(0, 2));
 				}
-
 			}
 		};
 		tfCredFidel = new TextField() {
@@ -215,7 +210,6 @@ public class CadastroEmpresaView extends AnchorPane {
 				if (getText().length() > 2) {
 					setText(getText().substring(0, 2));
 				}
-
 			}
 		};
 
