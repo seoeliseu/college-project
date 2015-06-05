@@ -1,60 +1,74 @@
 package br.com.salao.entity;
 
-import java.sql.Date;
-
 import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleLongProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class ClienteEntity {
 
 	private SimpleStringProperty nome;
 	private ContatoEntity contato;
-	private SimpleLongProperty RG;
-	private SimpleStringProperty dataDeNascimento;
+	private SimpleStringProperty rg;
+	private SimpleIntegerProperty dataDeNascimento;
 	private SimpleDoubleProperty creditoFidelidade;
+	private SimpleStringProperty cpf;
 
-
-
-	public ClienteEntity(SimpleStringProperty nome,
-			ContatoEntity contato, SimpleLongProperty rG,
-			SimpleStringProperty dataDeNascimento) {
-		super();
-		this.nome = nome;
-		this.contato = contato;
-		RG = rG;
-		this.dataDeNascimento = dataDeNascimento;
-	}
-
-	public ClienteEntity(String nome, String email, long RG, ContatoEntity contato,
-			String dataDeNascimento, double creditoFidelidade) {
-		super();
-		this.nome = new SimpleStringProperty(nome);
-		this.RG = new SimpleLongProperty(RG);
-		this.contato = contato;
-		this.dataDeNascimento = new SimpleStringProperty(dataDeNascimento);
-		this.creditoFidelidade = new SimpleDoubleProperty(creditoFidelidade);
-	}
-
-	public ClienteEntity(String nome, ContatoEntity contato,
-			String dataDeNascimento, double creditoFidelidade) {
+	public ClienteEntity(String nome, ContatoEntity contato, String rg,
+			int dataDeNascimento) {
 		super();
 		this.nome = new SimpleStringProperty(nome);
 		this.contato = contato;
-		this.dataDeNascimento = new SimpleStringProperty(dataDeNascimento);
-		this.creditoFidelidade = new SimpleDoubleProperty(creditoFidelidade);
+		this.rg = new SimpleStringProperty(rg);
+		this.dataDeNascimento = new SimpleIntegerProperty(dataDeNascimento);
+		this.creditoFidelidade = new SimpleDoubleProperty(0);
 	}
 
-	public ClienteEntity(String nome, Date date) {
-		this.nome = new SimpleStringProperty(nome);
-		this.dataDeNascimento = new SimpleStringProperty(date.toString());
-	}
+	// public ClienteEntity(String nome, String email, String rg, ContatoEntity
+	// contato,
+	// int dataDeNascimento, double creditoFidelidade) {
+	// super();
+	// this.nome = new SimpleStringProperty(nome);
+	// this.rg = new SimpleStringProperty(rg);
+	// this.contato = contato;
+	// this.dataDeNascimento = new SimpleIntegerProperty(dataDeNascimento);
+	// this.creditoFidelidade = new SimpleDoubleProperty(creditoFidelidade);
+	// }
+	//
+	// public ClienteEntity(String nome, ContatoEntity contato,
+	// int dataDeNascimento, double creditoFidelidade) {
+	// super();
+	// this.nome = new SimpleStringProperty(nome);
+	// this.contato = contato;
+	// this.dataDeNascimento = new SimpleIntegerProperty(dataDeNascimento);
+	// this.creditoFidelidade = new SimpleDoubleProperty(creditoFidelidade);
+	// }
+	//
+	// public ClienteEntity(String nome, int date) {
+	// this.nome = new SimpleStringProperty(nome);
+	// this.dataDeNascimento = new SimpleIntegerProperty(date);
+	// }
 	public String getNome() {
 		return this.nome.get();
 	}
 
 	public void setNome(String nome) {
 		this.nome.set(nome);
+	}
+
+	public String getRg() {
+		return this.rg.get();
+	}
+
+	public void setRg(String rg) {
+		this.rg.set(rg);
+	}
+
+	public String getCpf() {
+		return this.cpf.get();
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf.set(cpf);
 	}
 
 	public ContatoEntity getContato() {
@@ -65,11 +79,11 @@ public class ClienteEntity {
 		this.contato = contato;
 	}
 
-	public String getDataDeNascimento() {
+	public int getDataDeNascimento() {
 		return this.dataDeNascimento.get();
 	}
 
-	public void setDataDeNascimento(String dataDeNascimento) {
+	public void setDataDeNascimento(int dataDeNascimento) {
 		this.dataDeNascimento.set(dataDeNascimento);
 	}
 

@@ -10,6 +10,7 @@ import br.com.salao.controller.ConfiguracaoController;
 import br.com.salao.controller.ContatoController;
 import br.com.salao.controller.EnderecoController;
 import br.com.salao.entity.EmpresaEntity;
+import br.com.salao.factory.FactoryDAO;
 import br.com.salao.factory.FactoryEntity;
 import br.com.salao.interfaces.IDao;
 
@@ -28,8 +29,7 @@ public class EmpresaDAO implements IDao {
 	@Override
 	public boolean Inserir(Object objeto) {
 
-		Connection connection = FactoryEntity.getInstance().connection()
-				.getConnection();
+		Connection connection = FactoryDAO.getInstance().connection();
 		Savepoint savepoint = null;
 		PreparedStatement pstm = null;
 		System.out.println("Passei aqui");

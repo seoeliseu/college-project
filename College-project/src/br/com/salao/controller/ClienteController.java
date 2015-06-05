@@ -8,23 +8,9 @@ public class ClienteController implements IDao {
 
 	@Override
 	public void Excluir(Object objeto) {
-		
-		ClienteDAO cliDAO = new ClienteDAO();
-		try{
-
-			ClienteEntity cli = (ClienteEntity)objeto;
-			cliDAO.Inserir(cli);
-
-		}catch(ClassCastException e){
-			//tenta fazer o cast novamente caso não dê certo
-			e.getMessage();
-			this.Excluir(objeto);
-		}catch(Exception e){
-			//retornar erro com tipo de excessão para visão
-			e.getMessage();
-		}
+	
 	}
-
+	
 	@Override
 	public void Alterar(Object objeto) {
 
@@ -32,7 +18,7 @@ public class ClienteController implements IDao {
 
 	@Override
 	public boolean Inserir(Object objeto) {
-		return false;
+		return new ClienteDAO().Inserir(objeto);
 	}
 
 	@Override
@@ -43,7 +29,6 @@ public class ClienteController implements IDao {
 
 	@Override
 	public int getId(Object objeto) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 

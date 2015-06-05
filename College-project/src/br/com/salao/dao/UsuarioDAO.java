@@ -7,6 +7,7 @@ import java.sql.SQLException;
 
 import br.com.salao.entity.ContatoEntity;
 import br.com.salao.entity.UsuarioEntity;
+import br.com.salao.factory.FactoryDAO;
 import br.com.salao.factory.FactoryEntity;
 import br.com.salao.interfaces.IDao;
 
@@ -26,8 +27,7 @@ public class UsuarioDAO implements IDao {
 	public boolean Inserir(Object objeto) {
 		UsuarioEntity produto = (UsuarioEntity) objeto;
 
-		Connection connection = FactoryEntity.getInstance().connection()
-				.getConnection();
+		Connection connection = FactoryDAO.getInstance().connection();
 
 		PreparedStatement pstm = null;
 
@@ -62,7 +62,7 @@ public class UsuarioDAO implements IDao {
 	@Override
 	public Object Pesquisar(Object objeto) {
 		UsuarioEntity usuario = (UsuarioEntity) objeto;
-		Connection connection = FactoryEntity.getInstance().connection().getConnection();
+		Connection connection = FactoryDAO.getInstance().connection();
 		try {
 			ResultSet rs = connection.prepareStatement(SELECT+"tipo"+FROM+"usuario"+WHERE+"nome_usuario = "+
 					"'"+usuario.getNomeDeUsuario()+"'"+AND+"senha_usuario = "+"'"+usuario.getSenha()+"'").executeQuery();
@@ -80,7 +80,7 @@ public class UsuarioDAO implements IDao {
 	public int getId(Object objeto) {
 		// TODO Auto-generated method stub
 		UsuarioEntity usuario = (UsuarioEntity)objeto;
-		Connection connection = FactoryEntity.getInstance().connection().getConnection();
+		Connection connection = FactoryDAO.getInstance().connection();
 		try {
 			ResultSet rs = connection.prepareStatement(SELECT+"usuario.id"+FROM+"usuario"+WHERE+"nome_usuario = "+
 					"'"+usuario.getNomeDeUsuario()+"'"+AND+"senha_usuario = "+usuario.getSenha()+AND+"tipo = "+usuario.getTipo()).executeQuery();

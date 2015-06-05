@@ -10,6 +10,7 @@ import br.com.salao.controller.ContatoController;
 import br.com.salao.controller.EnderecoController;
 import br.com.salao.controller.UsuarioController;
 import br.com.salao.entity.FuncionarioEntity;
+import br.com.salao.factory.FactoryDAO;
 import br.com.salao.factory.FactoryEntity;
 import br.com.salao.interfaces.IDao;
 
@@ -28,7 +29,7 @@ public class FuncionarioDAO implements IDao{
 	public boolean Inserir(Object objeto) {
 		FuncionarioEntity funcionario = (FuncionarioEntity)objeto;
 		
-		Connection connection = FactoryEntity.getInstance().connection().getConnection();
+		Connection connection = FactoryDAO.getInstance().connection();
 		Savepoint savepoint = null;
 		System.out.println("Passei aqui FuncioDao");
 		

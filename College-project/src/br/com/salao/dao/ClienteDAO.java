@@ -5,20 +5,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import br.com.salao.controller.ContatoController;
 import br.com.salao.entity.ClienteEntity;
+import br.com.salao.factory.FactoryDAO;
 import br.com.salao.factory.FactoryEntity;
 import br.com.salao.interfaces.IDao;
 import br.com.salao.resource.JDBCConnection;
 
 public class ClienteDAO implements IDao {
-
-	private final String INSERT = " INSERT INTO ";
-	private final String SELECT = " SELECT ";
-	private final String FROM = " FROM ";
-	private final String WHERE = " WHERE ";
-	private final String UPDATE = " UPDATE ";
-	private final String VALUES = " VALUES( ";
-
 	@Override
 	public void Excluir(Object objeto) {
 		
@@ -31,15 +25,37 @@ public class ClienteDAO implements IDao {
 
 	@Override
 	public boolean Inserir(Object objeto) {
-		JDBCConnection conn = FactoryEntity.getInstance().connection();
-		conn.getConnection();
+		Connection conn = FactoryDAO.getInstance().connection();
 		ResultSet rs = null;
-		PreparedStatement prstm = null;
+		PreparedStatement pstm = null;
 		ClienteEntity cliente = (ClienteEntity)objeto;
 		String sql = "";
-		sql+= INSERT+"CLIENTE (nome, email, dataDeNascimento, endereco_id )";
 		
-		return true;
+		
+		
+		sql+= INSERT+"CLIENTE (nome, rg, credito, contatos_id, dtNascimento)";
+		sql+= VALUES+"(?,?,?,?,?)";
+		try {
+			
+			new ContatoController().Inserir(cliente.getContato());
+			int contatos_id = new ContatoDAO().getId(cliente.getContato());
+			
+			pstm = conn.prepareStatement(sql);
+			pstm.setString(1, cliente.getNome());
+			pstm.setString(2, cliente.getRg());
+			pstm.setDouble(3, cliente.getCreditoFidelidade());
+			pstm.setInt(4, contatos_id);
+			pstm.setInt(5, cliente.getDataDeNascimento());
+
+			pstm.executeUpdate();
+			conn.commit();
+			conn.close();
+			pstm.close();
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override

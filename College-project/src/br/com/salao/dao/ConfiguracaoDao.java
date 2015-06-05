@@ -7,6 +7,7 @@ import java.sql.SQLException;
 
 import br.com.salao.entity.ConfiguracaoEntity;
 import br.com.salao.entity.ContatoEntity;
+import br.com.salao.factory.FactoryDAO;
 import br.com.salao.factory.FactoryEntity;
 import br.com.salao.interfaces.IDao;
 
@@ -27,7 +28,7 @@ public class ConfiguracaoDao implements IDao {
 	@Override
 	public boolean Inserir(Object objeto) {
 		// TODO Auto-generated method stub
-		Connection connection = FactoryEntity.getInstance().connection().getConnection();
+		Connection connection = FactoryDAO.getInstance().connection();
 		
 		PreparedStatement pstm = null;
 		
@@ -65,7 +66,7 @@ public class ConfiguracaoDao implements IDao {
 	public int getId(Object objeto) {
 		// TODO Auto-generated method stub
 		ConfiguracaoEntity config = (ConfiguracaoEntity)objeto;
-		Connection connection = FactoryEntity.getInstance().connection().getConnection();
+		Connection connection = FactoryDAO.getInstance().connection();
 		try {
 			ResultSet rs = connection.prepareStatement(SELECT+"configuracao.id_config"+FROM+"configuracao"+WHERE+"hora_fechamento = "+
 					config.getHoraFechamento()+AND+"credito_fidelidade = "+config.getCredFidelidade()+AND+"credito_aniversario = "+
