@@ -71,6 +71,7 @@ public class ContatoDAO implements IDao{
 			ResultSet rs = connection.prepareStatement(SELECT+"contatos.id"+FROM+"contatos"+WHERE+"telefone1 = "+
 					contato.getTelefone1()).executeQuery();
 			while(rs.next()) return rs.getInt("id");
+			connection.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

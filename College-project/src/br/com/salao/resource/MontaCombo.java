@@ -58,7 +58,7 @@ public class MontaCombo {
 		}
 	}
 	
-	public void getCargos(ObservableList<String> cargos){
+	public void getCargo(ObservableList<String> cargo){
 
 		Connection conn = FactoryEntity.getInstance().connection().getConnection();
 		ResultSet rs = null;
@@ -67,7 +67,7 @@ public class MontaCombo {
 			rs = conn.prepareStatement(sql).executeQuery();
 			
 			while(rs.next()){
-				cargos.add(rs.getString("funcao"));
+				cargo.add(rs.getString("funcao"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

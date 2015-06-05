@@ -71,6 +71,7 @@ public class ConfiguracaoDao implements IDao {
 					config.getHoraFechamento()+AND+"credito_fidelidade = "+config.getCredFidelidade()+AND+"credito_aniversario = "+
 					config.getCredAniversario()).executeQuery();
 			while(rs.next()) return rs.getInt("id_config");
+			connection.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

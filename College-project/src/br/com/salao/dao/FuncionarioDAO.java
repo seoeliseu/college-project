@@ -59,29 +59,20 @@ public class FuncionarioDAO implements IDao{
 		pstm.setBoolean(8, funcionario.getTemAgenda());	
 		
 		int endereco_id = new EnderecoDAO().getId(funcionario.getEndereco());
-		
 		int contato_id = new ContatoDAO().getId(funcionario.getContato());
 		int usuario_id = new UsuarioDAO().getId(funcionario.getUsuario());
+		
 		pstm.setInt(9, endereco_id);
 		pstm.setInt(10, contato_id);
-		
-		
 		pstm.setString(11, funcionario.getPis());
-		
 		pstm.setInt(12, funcionario.getCargo());
 		pstm.setInt(13, usuario_id);
 		
-		
-		
 		pstm.execute();
-		
-		
-		
 		connection.commit();
-		
 		connection.close();
 		pstm.close();
-		
+
 		return true;
 		}catch(SQLException e){
 			

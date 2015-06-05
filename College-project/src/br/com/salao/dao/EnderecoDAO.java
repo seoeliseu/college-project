@@ -74,13 +74,14 @@ public class EnderecoDAO implements IDao{
 		try {
 			ResultSet rs = connection.prepareStatement(SELECT+"endereco.id"+FROM+"endereco"+WHERE
 					+"endereco.cep = "+endereco.getCep()+AND+"endereco.bairro = "+
-					endereco.getBairro().toString()+AND+"endereco.rua = "+
+					"'"+endereco.getBairro().toString()+"'"+AND+"endereco.rua = "+
 					endereco.getRua()+AND+"endereco.numero = "+
 					endereco.getNumero()+AND+"endereco.complemento = "+
 					endereco.getComplemento()+AND+"endereco.cidade_id = "+
 					String.valueOf(endereco.getCidade())).executeQuery();
 			
 			while(rs.next()) return rs.getInt("id");
+			connection.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
