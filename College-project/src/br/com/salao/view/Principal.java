@@ -17,13 +17,17 @@ package br.com.salao.view;
 
 import java.sql.Date;
 
+import com.sun.org.apache.bcel.internal.generic.INSTANCEOF;
+
 import br.com.salao.ValidacaoUtil.ValidacaoUtil;
-import br.com.salao.controller.ClienteController;
+import br.com.salao.controller.*;
 import br.com.salao.entity.ClienteEntity;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -48,6 +52,7 @@ public class Principal extends Application {
 	private ClienteEntityView clienteEntityView;
 	private ConfiguracaoView configuracaoView;
 	private ConsultaAgendamentosView consultaAgendamentosView;
+	private int testSenha;
 
 	private Stage stage;
 
@@ -133,8 +138,28 @@ public class Principal extends Application {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				// TODO Auto-generated method stub
-				goToTelaUserAdmin();
+
+				Object valor = loginView.login();
+				if(valor instanceof Boolean && (Boolean)valor == true){ 
+					AutenticaController.usuarioLogado = loginView.getUser(true);
+					goToTelaUserAdmin();
+				}
+				
+				if(valor instanceof Boolean && (Boolean)valor == false){ 
+					AutenticaController.usuarioLogado = loginView.getUser(false);
+					goToTelaUserComum();
+				} 
+				
+				if(valor instanceof Integer && (Integer)valor == -1){
+					testSenha++;
+					if(testSenha == 5) goToRecuperarSenha();
+					loginView.tfuser.clear();
+					loginView.pfpassword.clear();
+					Alert alert = new Alert(AlertType.ERROR,"Usuario ou senha inválidos!");
+				    alert.setTitle("Mensagem");
+				    alert.setHeaderText(null);
+				    alert.show();
+				}
 			}
 		});
 

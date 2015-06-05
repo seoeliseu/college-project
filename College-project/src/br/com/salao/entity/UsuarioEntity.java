@@ -1,19 +1,24 @@
 package br.com.salao.entity;
 
+import br.com.salao.interfaces.IAutentica;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 
-public class UsuarioEntity {
+public class UsuarioEntity implements IAutentica{
 
 	private SimpleStringProperty nomeDeUsuario;
 	private SimpleStringProperty Senha;
 	private SimpleBooleanProperty tipo;
 
 	public UsuarioEntity(String nomeDeUsuario, String senha, boolean tipo) {
-		System.out.println("Nome de usuario = "+nomeDeUsuario);
 		this.nomeDeUsuario = new SimpleStringProperty(nomeDeUsuario);
 		this.Senha = new SimpleStringProperty(senha);
 		this.tipo = new SimpleBooleanProperty(tipo);
+	}
+
+	public UsuarioEntity(String nomeDeUsuario, String senha){
+		this.nomeDeUsuario = new SimpleStringProperty(nomeDeUsuario);
+		this.Senha = new SimpleStringProperty(senha);
 	}
 
 	public String getNomeDeUsuario() {
@@ -38,6 +43,16 @@ public class UsuarioEntity {
 
 	public void setTipo(boolean tipo) {
 		this.tipo.set(tipo);
+	}
+
+	@Override
+	public Object login(String user, String senha) {
+		return null;
+	}
+
+	@Override
+	public boolean logout() {
+		return false;
 	}
 
 }
