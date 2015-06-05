@@ -61,8 +61,19 @@ public class UsuarioDAO implements IDao {
 
 	@Override
 	public Object Pesquisar(Object objeto) {
-		UsuarioEntity produto = (UsuarioEntity) objeto;
-		return null;
+		UsuarioEntity usuario = (UsuarioEntity) objeto;
+		Connection connection = FactoryEntity.getInstance().connection().getConnection();
+		try {
+			ResultSet rs = connection.prepareStatement(SELECT+"tipo"+FROM+"usuario"+WHERE+"nome_usuario = "+
+					"'"+usuario.getNomeDeUsuario()+"'"+AND+"senha_usuario = "+"'"+usuario.getSenha()+"'").executeQuery();
+			
+			while(rs.next()) if(rs.getInt("tipo") == 1) return true; if(rs.getInt("tipo") == 0) return false;
+			connection.close();
+			
+		} catch (SQLException e) {
+			return -1;
+		}
+		return -1;
 	}
 
 	@Override
@@ -76,7 +87,7 @@ public class UsuarioDAO implements IDao {
 			while(rs.next()) return rs.getInt("id");
 			connection.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		return -1;

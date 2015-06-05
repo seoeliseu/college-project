@@ -15,6 +15,9 @@
 
 package br.com.salao.view;
 
+import br.com.salao.controller.AutenticaController;
+import br.com.salao.entity.UsuarioEntity;
+import br.com.salao.interfaces.IAutentica;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -80,6 +83,14 @@ public class LoginView extends AnchorPane{
 		btLogin.setLayoutY(280);
 		btQuit.setLayoutX(270);
 		btQuit.setLayoutY(280);
+	}
+	
+	public Object login(){
+		return new AutenticaController().login(tfuser.getText(), pfpassword.getText());
+	}
+	
+	public IAutentica getUser(boolean tipo){
+		return new UsuarioEntity(tfuser.getText(), pfpassword.getText(), tipo);
 	}
 	
 }
