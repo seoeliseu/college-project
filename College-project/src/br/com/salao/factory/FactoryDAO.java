@@ -18,6 +18,7 @@ public class FactoryDAO {
 		return factory;
 	}
 
+	@SuppressWarnings("static-access")
 	public Connection connection() {
 
 		if (conn == null) return new JDBCConnection().getConnection();

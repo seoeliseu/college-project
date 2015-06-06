@@ -1,7 +1,14 @@
 package br.com.salao.factory;
 
-import br.com.salao.entity.*;
-import br.com.salao.resource.JDBCConnection;
+import br.com.salao.entity.ClienteEntity;
+import br.com.salao.entity.ConfiguracaoEntity;
+import br.com.salao.entity.ContatoEntity;
+import br.com.salao.entity.EmpresaEntity;
+import br.com.salao.entity.EnderecoEntity;
+import br.com.salao.entity.FuncionarioEntity;
+import br.com.salao.entity.ProdutoEntity;
+import br.com.salao.entity.ServicoEntity;
+import br.com.salao.entity.UsuarioEntity;
 
 public class FactoryEntity {
 
@@ -54,8 +61,8 @@ public class FactoryEntity {
 		return new ProdutoEntity(nome, valor, tempo);
 	}
 
-	public ServicoEntity servicoEntity() {
-		return new ServicoEntity();
+	public ServicoEntity servicoEntity(String nome, double valor, int tempoMinutos) {
+		return new ServicoEntity(nome, valor, tempoMinutos);
 	}
 
 	public UsuarioEntity usuarioEntity(String nomeDeUsuario, String senha,
