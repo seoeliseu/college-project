@@ -319,6 +319,22 @@ public class Principal extends Application {
 
 	// Eventos da classe cadastroServicoView
 	private void iniListenersCadastroServicoView() {
+		
+		cadastroServicoView.btConfirmar
+		.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent arg0) {
+				if(!cadastroServicoView.cadastrarServico()){
+					cadastroServicoView.limpar();
+					ValidacaoUtil.Alerta("Servico NÃO Cadastrado!", AlertType.ERROR);
+				}else{
+					cadastroServicoView.limpar();
+					ValidacaoUtil.Alerta("Servico Cadastrado com Sucesso!", AlertType.INFORMATION);
+				}
+			}
+		});
+		
 		cadastroServicoView.btCancelar
 		.setOnAction(new EventHandler<ActionEvent>() {
 

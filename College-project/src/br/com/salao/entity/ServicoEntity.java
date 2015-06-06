@@ -9,6 +9,13 @@ public class ServicoEntity {
 	private SimpleDoubleProperty valor;
 	private SimpleIntegerProperty tempoMinutos;
 	
+	public ServicoEntity(String nome, double valor, int tempoMinutos){
+		System.out.println("Contruiu");
+		this.nome = new SimpleStringProperty(nome);
+		this.valor = new SimpleDoubleProperty(valor);
+		this.tempoMinutos = new SimpleIntegerProperty(tempoMinutos);
+	}
+	
 	public String getNome() {
 		return this.nome.get();
 	}
