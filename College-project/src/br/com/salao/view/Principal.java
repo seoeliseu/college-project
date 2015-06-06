@@ -269,7 +269,7 @@ public class Principal extends Application {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				if (cadastroClienteView.cadastrarCliente()){
+				if (cadastroClienteView.cadastrarCliente()) {
 					cadastroClienteView.limpa();
 					ValidacaoUtil.Alerta(
 							"Cliente cadastrado com Sucesso!",
@@ -290,6 +290,23 @@ public class Principal extends Application {
 
 	// Eventos da classe cadastroFuncionarioView
 	private void iniListenersCadastroFuncionarioView() {
+
+		cadastroFuncionarioView.btCadastrar
+		.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent arg0) {
+
+				if (!cadastroFuncionarioView.cadastrarFuncionario()){
+					cadastroFuncionarioView.limpar();
+					ValidacaoUtil.Alerta("Funcionario não pode ser inserido!",AlertType.ERROR);
+				}else{
+					cadastroFuncionarioView.limpar();
+					ValidacaoUtil.Alerta("Funcionario inserido com sucesso!",AlertType.INFORMATION);
+				}
+			}
+		});
+
 		cadastroFuncionarioView.btCancelar
 		.setOnAction(new EventHandler<ActionEvent>() {
 

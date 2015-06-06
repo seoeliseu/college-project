@@ -20,6 +20,7 @@ public class MontaCombo {
 			while(rs.next()){
 				pais.add(rs.getString("nome"));
 			}
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -36,6 +37,7 @@ public class MontaCombo {
 			while(rs.next()){
 				estado.add(rs.getString("nome"));
 			}
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -52,6 +54,7 @@ public class MontaCombo {
 			while(rs.next()){
 				cidade.add(rs.getString("nome"));
 			}
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -68,6 +71,7 @@ public class MontaCombo {
 			while(rs.next()){
 				cargo.add(rs.getString("funcao"));
 			}
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

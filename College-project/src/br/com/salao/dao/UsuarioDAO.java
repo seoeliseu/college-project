@@ -66,10 +66,14 @@ public class UsuarioDAO implements IDao {
 			ResultSet rs = connection.prepareStatement(SELECT+"tipo"+FROM+"usuario"+WHERE+"nome_usuario = "+
 					"'"+usuario.getNomeDeUsuario()+"'"+AND+"senha_usuario = "+"'"+usuario.getSenha()+"'").executeQuery();
 			
-			while(rs.next()) if(rs.getInt("tipo") == 1) return true; if(rs.getInt("tipo") == 0) return false;
+			while(rs.next()){
+				if(rs.getInt("tipo") == 1) return true; 
+				if(rs.getInt("tipo") == 0) return false;
+			}
 			connection.close();
 			
 		} catch (SQLException e) {
+			e.printStackTrace();
 			return -1;
 		}
 		return -1;

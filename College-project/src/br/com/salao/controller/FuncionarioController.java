@@ -15,9 +15,7 @@ public class FuncionarioController implements IController{
 
 	@Override
 	public boolean Inserir(Object objeto) {
-		FuncionarioDAO fDao = new FuncionarioDAO();
-		return fDao.Inserir(objeto);
-		
+		return new FuncionarioDAO().Inserir(objeto);
 	}
 
 	@Override
