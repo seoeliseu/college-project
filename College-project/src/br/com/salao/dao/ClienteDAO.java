@@ -5,40 +5,41 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import br.com.salao.controller.ContatoController;
 import br.com.salao.entity.ClienteEntity;
+import br.com.salao.entity.ContatoEntity;
 import br.com.salao.factory.FactoryDAO;
+import br.com.salao.factory.FactoryEntity;
 import br.com.salao.interfaces.IDao;
 
 public class ClienteDAO implements IDao {
 	@Override
 	public void Excluir(Object objeto) {
-		
+
 	}
 
 	@Override
 	public void Alterar(Object objeto) {
-		ClienteEntity cliente = (ClienteEntity)objeto;
+		ClienteEntity cliente = (ClienteEntity) objeto;
 	}
 
 	@Override
 	public boolean Inserir(Object objeto) {
 		Connection conn = FactoryDAO.getInstance().connection();
-		@SuppressWarnings("unused")
-		ResultSet rs = null;
 		PreparedStatement pstm = null;
-		ClienteEntity cliente = (ClienteEntity)objeto;
+		ClienteEntity cliente = (ClienteEntity) objeto;
 		String sql = "";
-		
-		
-		
-		sql+= INSERT+"CLIENTE (nome, rg, credito, contatos_id, dtNascimento)";
-		sql+= VALUES+"(?,?,?,?,?)";
+
+		sql += INSERT
+				+ "CLIENTE (nome, rg, credito, contatos_id, dtNascimento)";
+		sql += VALUES + "(?,?,?,?,?)";
 		try {
-			
+
 			new ContatoController().Inserir(cliente.getContato());
 			int contatos_id = new ContatoDAO().getId(cliente.getContato());
-			
+
 			pstm = conn.prepareStatement(sql);
 			pstm.setString(1, cliente.getNome());
 			pstm.setString(2, cliente.getRg());
@@ -59,7 +60,7 @@ public class ClienteDAO implements IDao {
 
 	@Override
 	public Object Pesquisar(Object objeto) {
-		ClienteEntity cliente = (ClienteEntity)objeto;
+		ClienteEntity cliente = (ClienteEntity) objeto;
 		return null;
 	}
 
@@ -68,4 +69,42 @@ public class ClienteDAO implements IDao {
 		return 0;
 	}
 
+	public ObservableList<ClienteEntity> getAll() {
+		Connection conn = FactoryDAO.getInstance().connection();
+		ResultSet rs = null;
+
+		ObservableList<ClienteEntity> lista_cliente = FXCollections
+				.observableArrayList();
+
+		try {
+			rs = conn.prepareStatement(SELECT + "*" + FROM + "cliente")
+					.executeQuery();
+			while (rs.next()) {
+				ResultSet rsID = conn.prepareStatement(
+						SELECT + "*" + FROM + "contatos" + WHERE
+								+ String.valueOf(rs.getInt("contatos_id"))
+								+ "= contatos.id").executeQuery();
+				
+				rsID.next();
+				
+				ClienteEntity cliente = FactoryEntity.getInstance().clienteEntity(rs.getString("nome"),
+						new ContatoEntity(rsID.getString("email"), rsID
+								.getString("telefone1"), rsID
+								.getString("telefone2")), rs.getString("rg"),
+						rs.getInt("dtNascimento"), rs.getDouble("credito"));
+				
+				cliente.setEmail(cliente.getContato().getEmail());
+				cliente.setTelefone1(cliente.getContato().getTelefone1());
+				cliente.setTelefone2(cliente.getContato().getTelefone2());
+				
+
+				lista_cliente.add(cliente);
+			}
+			return lista_cliente;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 }

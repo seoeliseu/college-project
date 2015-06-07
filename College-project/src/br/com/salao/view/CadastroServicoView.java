@@ -15,7 +15,7 @@ public class CadastroServicoView extends AnchorPane{
 	private Label lbServico, lbValor, lbTime;
 	private TextField tfServico, tfValor, tfTime;
 	private ServicoController control;
-	private final String restictToNumber = "[0-9:\\s]*";
+	private final String restictToNumber = "[0-9\\s]*";
 
 	public CadastroServicoView() {
 		iniComponets();
@@ -53,9 +53,9 @@ public class CadastroServicoView extends AnchorPane{
 					public void changed(
 							final ObservableValue<? extends String> ov,
 							final String oldValue, final String newValue) {
-						if (tfTime.getText().length() > 5) {
+						if (tfTime.getText().length() > 3) {
 							String s = tfTime.getText().substring(0,
-									5);
+									3);
 							tfTime.setText(s);
 						}
 					}
@@ -99,11 +99,10 @@ public class CadastroServicoView extends AnchorPane{
 	}
 
 	public boolean cadastrarServico(){
-		System.out.println(this.tfServico.getText());
-		String[] hora = this.tfTime.getText().split(":");
+		
 		return control.Inserir(FactoryEntity.getInstance().servicoEntity(this.tfServico.getText(),
 				Double.parseDouble(this.tfValor.getText()),
-				Integer.parseInt(hora[0]+hora[1])));
+				Integer.parseInt(this.tfTime.getText())));
 	}
 	
 public void limpar(){

@@ -12,6 +12,10 @@ public class ClienteEntity {
 	private SimpleIntegerProperty dataDeNascimento;
 	private SimpleDoubleProperty creditoFidelidade;
 	private SimpleStringProperty cpf;
+	
+	private SimpleStringProperty email = new SimpleStringProperty();
+	private SimpleStringProperty telefone1 = new SimpleStringProperty();
+	private SimpleStringProperty telefone2 = new SimpleStringProperty(); 
 
 	public ClienteEntity(String nome, ContatoEntity contato, String rg,
 			int dataDeNascimento) {
@@ -21,6 +25,16 @@ public class ClienteEntity {
 		this.rg = new SimpleStringProperty(rg);
 		this.dataDeNascimento = new SimpleIntegerProperty(dataDeNascimento);
 		this.creditoFidelidade = new SimpleDoubleProperty(0);
+	}
+	
+	public ClienteEntity(String nome, ContatoEntity contato, String rg,
+			int dataDeNascimento, double cred) {
+		super();
+		this.nome = new SimpleStringProperty(nome);
+		this.contato = contato;
+		this.rg = new SimpleStringProperty(rg);
+		this.dataDeNascimento = new SimpleIntegerProperty(dataDeNascimento);
+		this.creditoFidelidade = new SimpleDoubleProperty(cred);
 	}
 
 	public String getNome() {
@@ -70,5 +84,28 @@ public class ClienteEntity {
 	public void setCreditoFidelidade(double creditoFidelidade) {
 		this.creditoFidelidade.set(creditoFidelidade);
 	}
+	
+	public String getEmail() {
+		return this.email.get();
+	}
 
+	public void setEmail(String email) {
+		this.email.set(email);
+	}
+
+	public String getTelefone1() {
+		return this.telefone1.get();
+	}
+
+	public void setTelefone1(String telefone1) {
+		this.telefone1.set(telefone1);
+	}
+
+	public String getTelefone2() {
+		return this.telefone2.get();
+	}
+
+	public void setTelefone2(String telefone2) {
+		this.telefone2.set(telefone2);
+	}
 }
