@@ -95,7 +95,23 @@ public class FuncionarioDAO implements IDao{
 
 	@Override
 	public int getId(Object objeto) {
-		return 0;
+		String nome = (String) objeto;
+		
+		Connection connection = FactoryDAO.getInstance().connection();
+		ResultSet rs = null;
+		
+		try{
+			rs = connection.prepareStatement(SELECT+"id"+FROM+"funcionario"+WHERE+"funcionario.nome = "+"'"+nome+"'").executeQuery();
+			
+			while(rs.next()) return rs.getInt("id");
+			
+			connection.close();
+			rs.close();
+		}catch(SQLException e){
+			e.printStackTrace();
+			return -1;
+		}
+		return -1;
 	}
 
 }

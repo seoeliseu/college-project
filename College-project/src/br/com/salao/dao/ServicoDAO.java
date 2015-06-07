@@ -2,6 +2,7 @@ package br.com.salao.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import br.com.salao.entity.ServicoEntity;
@@ -60,7 +61,23 @@ Connection connection = FactoryDAO.getInstance().connection();
 
 	@Override
 	public int getId(Object objeto) {
-		return 0;
+	String nome = (String) objeto;
+		
+		Connection connection = FactoryDAO.getInstance().connection();
+		ResultSet rs = null;
+		
+		try{
+			rs = connection.prepareStatement(SELECT+"id"+FROM+"produto"+WHERE+"produto.descricao = "+"'"+nome+"'").executeQuery();
+			
+			while(rs.next()) return rs.getInt("id");
+			
+			connection.close();
+			rs.close();
+		}catch(SQLException e){
+			e.printStackTrace();
+			return -1;
+		}
+		return -1;
 	}
 
 }

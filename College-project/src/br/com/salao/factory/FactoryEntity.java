@@ -6,7 +6,6 @@ import br.com.salao.entity.ContatoEntity;
 import br.com.salao.entity.EmpresaEntity;
 import br.com.salao.entity.EnderecoEntity;
 import br.com.salao.entity.FuncionarioEntity;
-import br.com.salao.entity.ProdutoEntity;
 import br.com.salao.entity.ServicoEntity;
 import br.com.salao.entity.UsuarioEntity;
 
@@ -59,10 +58,6 @@ public class FactoryEntity {
 		return new FuncionarioEntity(nome, ctps, cpf, rg, cargo_id, contato,
 				endereco, dataDeNascimento, dataDeAdmissao,
 				statusDoFuncionario, temAgenda, usuario, pis);
-	}
-
-	public ProdutoEntity produtoEntity(String nome, double valor, int tempo) {
-		return new ProdutoEntity(nome, valor, tempo);
 	}
 
 	public ServicoEntity servicoEntity(String nome, double valor, int tempoMinutos) {

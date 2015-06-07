@@ -3,7 +3,6 @@ package br.com.salao.view;
 import br.com.salao.dao.ClienteDAO;
 import br.com.salao.entity.ClienteEntity;
 import br.com.salao.entity.ContatoEntity;
-import br.com.salao.entity.ProdutoEntity;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Button;

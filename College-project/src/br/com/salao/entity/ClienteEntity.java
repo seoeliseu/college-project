@@ -15,7 +15,17 @@ public class ClienteEntity {
 	
 	private SimpleStringProperty email = new SimpleStringProperty();
 	private SimpleStringProperty telefone1 = new SimpleStringProperty();
-	private SimpleStringProperty telefone2 = new SimpleStringProperty(); 
+	private SimpleStringProperty telefone2 = new SimpleStringProperty();
+	
+	private int id;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public ClienteEntity(String nome, ContatoEntity contato, String rg,
 			int dataDeNascimento) {
