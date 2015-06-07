@@ -18,12 +18,16 @@ package br.com.salao.view;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.TableRow;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import br.com.salao.ValidacaoUtil.ValidacaoUtil;
 import br.com.salao.controller.AutenticaController;
+import br.com.salao.entity.ClienteEntity;
 
 public class Principal extends Application {
 	public final String LOGIN_VIEW = "login_view";
@@ -422,8 +426,29 @@ public class Principal extends Application {
 		});
 	}
 
+	
 	// Eventos da classe consultaClienteView
 	private void iniListenersConsultaClienteView() {
+		
+		consultaClienteView.tableCliente.setOnMousePressed(new EventHandler<MouseEvent>() {
+		    @Override 
+		    public void handle(MouseEvent event) {
+		        if (event.isPrimaryButtonDown() && event.getClickCount() == 2) {
+		            Node node = ((Node) event.getTarget()).getParent();
+		            TableRow row;
+		            if (node instanceof TableRow) {
+		                row = (TableRow) node;
+		            } else {
+		                // clicking on text part
+		                row = (TableRow) node.getParent();
+		            }
+		            ClienteEntity cli = (ClienteEntity) row.getItem();
+		            goToClienteEntityView(cli);
+		        }
+		    }
+		});
+		
+		
 		consultaClienteView.btSair.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
@@ -437,7 +462,7 @@ public class Principal extends Application {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				goToClienteEntityView();
+				goToClienteEntityView(consultaClienteView.tableCliente.getSelectionModel().getSelectedItem());
 			}
 		});
 	}
@@ -469,6 +494,17 @@ public class Principal extends Application {
 
 	// Eventos da classe AgendarServicoView
 	private void iniListenersAgendarServicoView() {
+		
+		agendarServicoView.btCadastrar
+		.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent arg0) {
+				
+				//agendarServicoView.stage.close();
+			}
+		});
+		
 		agendarServicoView.btCancelar
 		.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -568,9 +604,11 @@ public class Principal extends Application {
 		userComumView.getChildren().add(1, userComumView.paneBody);
 	}
 
-	private void goToClienteEntityView() {
+	private void goToClienteEntityView(ClienteEntity cli) {
+		clienteEntityView.clienteEntity(cli);
 		userComumView.getChildren().remove(1);
 		userComumView.getChildren().add(1, clienteEntityView);
+		
 	}
 
 	private void goToConsultaAgendamentosView() {

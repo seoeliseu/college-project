@@ -1,6 +1,7 @@
 package br.com.salao.view;
 
 import br.com.salao.resource.ConfDatePicker;
+import br.com.salao.resource.MontaCombo;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -56,9 +57,9 @@ public class AgendarServicoView extends Application{
 		tfHora = new TextField();
 		tfHora.setPrefWidth(100);
 		
-		cbServico = new ComboBox<>();
+		cbServico = new ComboBox<>(new MontaCombo().getServico());
 		cbServico.setPrefWidth(250);
-		cbFuncionario = new ComboBox<>();
+		cbFuncionario = new ComboBox<>(new MontaCombo().getFuncionario());
 		cbFuncionario.setPrefWidth(250);
 		
 		btCadastrar = new Button("Cadastrar");
