@@ -27,6 +27,10 @@ public class FactoryEntity {
 			String rg, int dataDeNascimento) {
 		return new ClienteEntity(nome, contato, rg, dataDeNascimento);
 	}
+	public ClienteEntity clienteEntity(String nome, ContatoEntity contato,
+			String rg, int dataDeNascimento, double cred) {
+		return new ClienteEntity(nome, contato, rg, dataDeNascimento,cred);
+	}
 
 	public ContatoEntity contato(String email, String telefone1,
 			String telefone2) {

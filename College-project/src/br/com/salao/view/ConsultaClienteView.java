@@ -1,12 +1,16 @@
 package br.com.salao.view;
 
+import br.com.salao.dao.ClienteDAO;
 import br.com.salao.entity.ClienteEntity;
+import br.com.salao.entity.ContatoEntity;
+import br.com.salao.entity.ProdutoEntity;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
 public class ConsultaClienteView extends AnchorPane{
@@ -42,27 +46,46 @@ public class ConsultaClienteView extends AnchorPane{
 		tableCliente = new TableView<ClienteEntity>();
 		tableCliente.setPrefSize(1050, 400);
 		
-		nomeCol = new TableColumn<>("Nome");
+		nomeCol = new TableColumn<ClienteEntity, String>("Nome");
 		nomeCol.setMinWidth(400);
+		nomeCol.setCellValueFactory(
+                new PropertyValueFactory<ClienteEntity, String>("nome"));
 		
 		dateNasCol = new TableColumn<>("Data de nascimento");
+		dateNasCol.setCellValueFactory(
+                new PropertyValueFactory<ClienteEntity, Integer>("dataDeNascimento"));
 		dateNasCol.setMinWidth(150);
-		rgCol = new TableColumn<>("RG");
+		
+		rgCol = new TableColumn<ClienteEntity, String>("RG");
 		rgCol.setMinWidth(150);
-		telOneCol = new TableColumn<>("Telefone fixo");
+		rgCol.setCellValueFactory(
+                new PropertyValueFactory<ClienteEntity, String>("rg"));
+		
+		telOneCol = new TableColumn<ClienteEntity, String>("Telefone 1");
 		telOneCol.setMinWidth(150);
-		telTwoCol = new TableColumn<>("Telefone celular");
+		telOneCol.setCellValueFactory(
+                new PropertyValueFactory<ClienteEntity, String>("telefone1"));
+		
+		telTwoCol = new TableColumn<ClienteEntity, String>("Telefone 2");
 		telTwoCol.setMinWidth(150);
-		emailCol = new TableColumn<>("Email");
+		telTwoCol.setCellValueFactory(
+                new PropertyValueFactory<ClienteEntity, String>("telefone2"));
+		
+		emailCol = new TableColumn<ClienteEntity, String>("Email");
 		emailCol.setMinWidth(300);
-		credCol = new TableColumn<>("Crédito");
+		emailCol.setCellValueFactory(
+                new PropertyValueFactory<ClienteEntity, String>("email"));
+		
+		credCol = new TableColumn<ClienteEntity, Double>("Crédito");
 		credCol.setMinWidth(150);
+		credCol.setCellValueFactory(
+                new PropertyValueFactory<ClienteEntity, String>("creditoFidelidade"));
 		
 		tableCliente.getColumns().addAll(nomeCol,dateNasCol,rgCol,telOneCol,telTwoCol,emailCol,credCol);
 		
 		getChildren().addAll(tableCliente,btSair,tfPesquisar,btPesquisar, btAcessarCliente, btEditar,btCadastrarCliente,btDeletar);
 		
-		data = FXCollections.observableArrayList();
+		data = new ClienteDAO().getAll();
 		tableCliente.setItems(data);
 		
 	}
