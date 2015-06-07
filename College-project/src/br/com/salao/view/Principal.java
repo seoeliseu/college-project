@@ -27,7 +27,11 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import br.com.salao.ValidacaoUtil.ValidacaoUtil;
 import br.com.salao.controller.AutenticaController;
+import br.com.salao.controller.FuncionarioController;
+import br.com.salao.controller.ServicoController;
 import br.com.salao.entity.ClienteEntity;
+import br.com.salao.entity.ServicoAgendadoEntity;
+import br.com.salao.factory.FactoryController;
 
 public class Principal extends Application {
 	public final String LOGIN_VIEW = "login_view";
@@ -484,6 +488,7 @@ public class Principal extends Application {
 			public void handle(ActionEvent arg0) {
 
 				try {
+					agendarServicoView.setClienteId(clienteEntityView.tableCliente.getItems().get(0).getId());
 					agendarServicoView.start(agendarServicoView.stage);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -500,6 +505,19 @@ public class Principal extends Application {
 
 			@Override
 			public void handle(ActionEvent arg0) {
+				String[] data = agendarServicoView.dpData.getValue().toString().split("-");
+				String[] hora = agendarServicoView.tfHora.getText().split(":");
+				
+				ServicoAgendadoEntity servico = new ServicoAgendadoEntity();
+				servico.setId_servico((int)new ServicoController().Pesquisar(agendarServicoView.cbServico.getValue()));
+				servico.setId_funcionario((int) new FuncionarioController().Pesquisar(agendarServicoView.cbFuncionario.getValue()));
+				servico.setId_cliente(agendarServicoView.getId_cliente());
+				System.out.println(agendarServicoView.dpData.getValue());
+				servico.setData(Integer.parseInt(data[0]+data[1]+data[2]));
+				servico.setHora(Integer.parseInt(hora[0]+hora[1]));
+				
+				FactoryController.getInstance().servicoAgendadoController().Inserir(servico);
+				
 				
 				//agendarServicoView.stage.close();
 			}

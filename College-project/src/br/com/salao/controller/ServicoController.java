@@ -23,7 +23,7 @@ public class ServicoController implements IController{
 
 	@Override
 	public Object Pesquisar(Object objeto) {
-		return null; 
+		return new ServicoDAO().getId(objeto);
 	}
 
 }

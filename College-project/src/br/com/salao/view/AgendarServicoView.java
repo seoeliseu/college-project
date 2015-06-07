@@ -23,6 +23,8 @@ public class AgendarServicoView extends Application{
 	public TextField tfHora;
 	public ComboBox cbServico, cbFuncionario;
 	
+	private int id_cliente;
+	
 	public static void main(String[] args) {
 		launch(args);
 	}
@@ -104,5 +106,14 @@ public class AgendarServicoView extends Application{
 		btCancelar.setLayoutX(350);
 		btCancelar.setLayoutY(300);
 	}
+	
+	public void setClienteId(int id){
+		this.id_cliente = id;
+	}
+
+	public int getId_cliente() {
+		return id_cliente;
+	}
+
 
 }

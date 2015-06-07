@@ -1,6 +1,6 @@
 package br.com.salao.view;
 
-import br.com.salao.entity.ProdutoEntity;
+import br.com.salao.entity.ServicoEntity;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
@@ -12,12 +12,12 @@ import javafx.scene.layout.AnchorPane;
 public class ListarServicoView extends AnchorPane{
 	private AnchorPane paneBody;
 	public Button btSair, btCadastrarServico, btDeletar, btEditar;
-	public TableView<ProdutoEntity> tableServico;
-	private TableColumn<ProdutoEntity, String> nomeServicoCol;
-	private TableColumn<ProdutoEntity, Double> valorCol;
-	private TableColumn<ProdutoEntity, Integer> timeCol;
+	public TableView<ServicoEntity> tableServico;
+	private TableColumn<ServicoEntity, String> nomeServicoCol;
+	private TableColumn<ServicoEntity, Double> valorCol;
+	private TableColumn<ServicoEntity, Integer> timeCol;
 	
-	private ObservableList<ProdutoEntity> data;
+	private ObservableList<ServicoEntity> data;
 	
 	public ListarServicoView(){
 		iniComponents();
@@ -39,21 +39,21 @@ public class ListarServicoView extends AnchorPane{
 		btEditar = new Button("Editar");
 		btEditar.setPrefSize(100, 30);
 		
-		tableServico = new TableView<ProdutoEntity>();
+		tableServico = new TableView<ServicoEntity>();
 		tableServico.setPrefSize(1050, 400);
-		nomeServicoCol = new TableColumn<ProdutoEntity, String>("Serviço");
+		nomeServicoCol = new TableColumn<ServicoEntity, String>("Serviço");
 		nomeServicoCol.setMinWidth(600);
 		nomeServicoCol.setCellValueFactory(
-                new PropertyValueFactory<ProdutoEntity, String>("nome"));
+                new PropertyValueFactory<ServicoEntity, String>("nome"));
 		
-		valorCol = new TableColumn<ProdutoEntity, Double>("Valor");
+		valorCol = new TableColumn<ServicoEntity, Double>("Valor");
 		valorCol.setMinWidth(224);
 		valorCol.setCellValueFactory(
-                new PropertyValueFactory<ProdutoEntity, Double>("valor"));
-		timeCol = new TableColumn <ProdutoEntity, Integer>("Tempo médio(min)");
+                new PropertyValueFactory<ServicoEntity, Double>("valor"));
+		timeCol = new TableColumn <ServicoEntity, Integer>("Tempo médio(min)");
 		timeCol.setMinWidth(224);
 		timeCol.setCellValueFactory(
-                new PropertyValueFactory<ProdutoEntity, Integer>("tempo"));
+                new PropertyValueFactory<ServicoEntity, Integer>("tempo"));
 		
 		data = FXCollections.observableArrayList();
 		tableServico.setItems(data);
@@ -63,8 +63,8 @@ public class ListarServicoView extends AnchorPane{
 		paneBody.getChildren().addAll(tableServico, btSair,btCadastrarServico, btDeletar, btEditar);
 		getChildren().addAll(paneBody);
 		
-		data.add(new ProdutoEntity("Unha mao",15, 45));
-		data.add(new ProdutoEntity("Unha pé",15, 45));
+		data.add(new ServicoEntity("Unha mao",15, 45));
+		data.add(new ServicoEntity("Unha pé",15, 45));
 	}
 	private void iniLayout(){
 		btSair.setLayoutX(30);

@@ -47,8 +47,8 @@ public class FactoryController {
 		return new FuncionarioController();
 	}
 	
-	public ProdutoController produtoController(){
-		return new ProdutoController();
+	public ServicoAgendadoController servicoAgendadoController(){
+		return new ServicoAgendadoController();
 	}
 	
 	public ServicoController servicoController(){

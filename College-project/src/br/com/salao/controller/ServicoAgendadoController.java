@@ -1,26 +1,28 @@
 package br.com.salao.controller;
 
-import br.com.salao.dao.FuncionarioDAO;
 import br.com.salao.interfaces.IController;
+import br.com.salao.dao.ServicoAgendadoDAO;
 
-public class FuncionarioController implements IController{
+public class ServicoAgendadoController implements IController{
 
 	@Override
 	public void Excluir(Object objeto) {
+		
 	}
 
 	@Override
 	public void Alterar(Object objeto) {
+		
 	}
 
 	@Override
 	public boolean Inserir(Object objeto) {
-		return new FuncionarioDAO().Inserir(objeto);
+		return new ServicoAgendadoDAO().Inserir(objeto);
 	}
 
 	@Override
 	public Object Pesquisar(Object objeto) {
-		return new FuncionarioDAO().getId(objeto);
+		return null;
 	}
-	
+
 }

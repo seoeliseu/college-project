@@ -96,10 +96,15 @@ public class ClienteDAO implements IDao {
 				cliente.setEmail(cliente.getContato().getEmail());
 				cliente.setTelefone1(cliente.getContato().getTelefone1());
 				cliente.setTelefone2(cliente.getContato().getTelefone2());
+				cliente.setId(rs.getInt("id"));
 				
 
 				lista_cliente.add(cliente);
 			}
+			
+			conn.close();
+			rs.close();
+			
 			return lista_cliente;
 
 		} catch (SQLException e) {
