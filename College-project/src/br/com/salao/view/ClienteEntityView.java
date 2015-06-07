@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import br.com.salao.entity.ClienteEntity;
 
@@ -57,14 +58,25 @@ public class ClienteEntityView extends AnchorPane{
 		tfTDesconto.setEditable(false);
 		
 		tableCliente = new TableView<>();
-		tableCliente.setPrefSize(700, 50);
+		tableCliente.setPrefSize(700, 70);
 		colNome = new TableColumn<>("Nome");
+		colNome.setCellValueFactory(
+                new PropertyValueFactory<ClienteEntity, String>("nome"));
 		colNome.setMinWidth(310);
+		
 		colRg = new TableColumn<>("RG");
+		colRg.setCellValueFactory(
+                new PropertyValueFactory<ClienteEntity, String>("rg"));
 		colRg.setMinWidth(130);
+		
 		colTelOne = new TableColumn<>("Telefone");
+		colTelOne.setCellValueFactory(
+                new PropertyValueFactory<ClienteEntity, String>("telefone1"));
 		colTelOne.setMinWidth(130);
+		
 		colTelTwo = new TableColumn<>("Celular");
+		colTelTwo.setCellValueFactory(
+                new PropertyValueFactory<ClienteEntity, String>("telefone2"));
 		colTelTwo.setMinWidth(130);
 		
 		tableServicosAgendados = new TableView<>();
@@ -132,5 +144,9 @@ public class ClienteEntityView extends AnchorPane{
 		
 		btEmitirSegundaVia.setLayoutX(80);
 		btEmitirSegundaVia.setLayoutY(510);
+	}
+	
+	public void clienteEntity(ClienteEntity cli){
+		this.dataCliente.add(0, cli);
 	}
 }

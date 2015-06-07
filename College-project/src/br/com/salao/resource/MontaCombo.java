@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import br.com.salao.factory.FactoryDAO;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class MontaCombo {
@@ -75,5 +76,41 @@ public class MontaCombo {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public ObservableList<String> getServico(){
+		ObservableList<String> servico = FXCollections.observableArrayList();
+		Connection conn = FactoryDAO.getInstance().connection();
+		ResultSet rs = null;
+		String sql = "SELECT descricao FROM produto ORDER BY ID;";
+		try {
+			rs = conn.prepareStatement(sql).executeQuery();
+			
+			while(rs.next()){
+				servico.add(rs.getString("descricao"));
+			}
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return servico;
+	}
+	
+	public ObservableList<String> getFuncionario(){
+		ObservableList<String> funcionario = FXCollections.observableArrayList();
+		Connection conn = FactoryDAO.getInstance().connection();
+		ResultSet rs = null;
+		String sql = "SELECT nome FROM funcionario ORDER BY ID;";
+		try {
+			rs = conn.prepareStatement(sql).executeQuery();
+			
+			while(rs.next()){
+				funcionario.add(rs.getString("nome"));
+			}
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return funcionario;
 	}
 }
